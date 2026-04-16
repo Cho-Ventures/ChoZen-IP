@@ -776,6 +776,8 @@ body{font-family:var(--font-body);color:var(--text);background:var(--warm-white)
 .colNavLogo{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:500;font-size:0.95rem;letter-spacing:0.3em;color:var(--col-bone);text-decoration:none;transition:color 0.4s}
 .colNav.scrolled .colNavLogo{color:var(--col-coffee)}
 .colNavMark{display:inline-flex;width:22px;height:22px;align-items:center;justify-content:center;color:var(--col-gold);font-size:0.9rem;transform:translateY(-1px)}
+.colNavStamp{display:block;width:26px;height:26px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.92;transition:filter 0.4s ease}
+.colNav.scrolled .colNavStamp{filter:none;opacity:1}
 .colNavDot{opacity:0.4;margin:0 -4px}
 .colNavLoc{font-style:italic;font-weight:400;letter-spacing:0.25em;opacity:0.85}
 .colNavLinks{display:flex;gap:2px}
@@ -958,6 +960,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--warm-white)
 .colFooterRow{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
 .colFooterBrand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:500;font-size:0.9rem;letter-spacing:0.28em;color:var(--col-bone)}
 .colFooterMark{color:var(--col-gold)}
+.colFooterStamp{display:block;width:24px;height:24px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.85}
 .colFooterDot{opacity:0.4}
 .colFooterMeta{font-size:0.72rem;letter-spacing:0.14em;color:rgba(246,241,231,0.6);font-weight:500}
 .colFooterMeta a{color:var(--col-gold-soft);text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.3s}

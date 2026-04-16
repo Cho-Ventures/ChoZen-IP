@@ -2,18 +2,24 @@
 import { useState, useEffect, useRef } from "react";
 
 const BLOB = "https://zicvctuf51wytcty.public.blob.vercel-storage.com/renderings";
+const VIDEO_BLOB = "https://zicvctuf51wytcty.public.blob.vercel-storage.com/renderings/videos";
+const IMG_BLOB = "https://zicvctuf51wytcty.public.blob.vercel-storage.com/images";
 
 // ═══════════════════════════════════════════════════════════════
 // MEDIA — direct blob URLs (spaces encoded)
 // ═══════════════════════════════════════════════════════════════
 
 const encode = (name) => `${BLOB}/${encodeURIComponent(name)}`;
+const encodeVideo = (name) => `${VIDEO_BLOB}/${encodeURIComponent(name)}`;
+
+const STAMP_LOGO = `${IMG_BLOB}/chozen-stamp.png`;
 
 const VIDEO = {
-  heroPullback: encode("Firefly Epic slow cinematic drone pullback rising gradually from the luxury mountain village, reveal.mp4"),
-  nightDrift: encode("Firefly Slow cinematic drone drift forward over a luxury Colombian mountain village at night under a.mp4"),
-  corridorDolly: encode("Firefly Slow dolly forward through the open-air corridor, camera gliding past whitewashed walls and .mp4"),
-  lateralTrack: encode("Firefly Slow lateral drone tracking shot moving right to left past luxury whitewashed and brick Colo.mp4"),
+  heroPullback: encodeVideo("Firefly Epic slow cinematic drone pullback rising gradually from the luxury mountain village, reveal.mp4"),
+  nightDrift: encodeVideo("Firefly Slow cinematic drone drift forward over a luxury Colombian mountain village at night under a.mp4"),
+  corridorDolly: encodeVideo("Firefly Slow dolly forward through the open-air corridor, camera gliding past whitewashed walls and-.mp4"),
+  lateralTrack: encodeVideo("Firefly Slow lateral drone tracking shot moving right to left past luxury whitewashed and brick Colo.mp4"),
+  // NOTE: bamboo wellness pushin not yet in /renderings/videos/ — falls back to original full-size file
   bambooPushIn: encode("Firefly Slow push-in toward the bamboo wellness pavilion, steam rises gently from the stone pool sur.mp4"),
 };
 
@@ -203,7 +209,7 @@ function Nav() {
     <nav className={`colNav ${scrolled ? "scrolled" : ""}`}>
       <div className="colNavInner">
         <a href="#" className="colNavLogo">
-          <span className="colNavMark">◇</span>
+          <img src={STAMP_LOGO} alt="" className="colNavStamp" />
           <span>CHOZEN</span>
           <span className="colNavDot">·</span>
           <span className="colNavLoc">COLOMBIA</span>
@@ -623,7 +629,7 @@ export default function Home() {
         <div className="colWrap">
           <div className="colFooterRow">
             <div className="colFooterBrand">
-              <span className="colFooterMark">◇</span>
+              <img src={STAMP_LOGO} alt="" className="colFooterStamp" />
               <span>CHOZEN</span>
               <span className="colFooterDot">·</span>
               <span>COLOMBIA</span>
