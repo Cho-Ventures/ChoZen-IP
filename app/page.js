@@ -19,8 +19,7 @@ const VIDEO = {
   nightDrift: encodeVideo("Firefly Slow cinematic drone drift forward over a luxury Colombian mountain village at night under a.mp4"),
   corridorDolly: encodeVideo("Firefly Slow dolly forward through the open-air corridor, camera gliding past whitewashed walls and-.mp4"),
   lateralTrack: encodeVideo("Firefly Slow lateral drone tracking shot moving right to left past luxury whitewashed and brick Colo.mp4"),
-  // NOTE: bamboo wellness pushin not yet in /renderings/videos/ — falls back to original full-size file
-  bambooPushIn: encode("Firefly Slow push-in toward the bamboo wellness pavilion, steam rises gently from the stone pool sur.mp4"),
+  bambooPushIn: encodeVideo("Firefly Slow push-in toward the bamboo wellness pavilion, steam rises gently from the stone pool sur.mp4"),
 };
 
 const IMG = {
@@ -359,6 +358,7 @@ export default function Home() {
         </video>
         <div className="colHeroOverlay" />
         <div className="colHeroContent">
+          <img src={STAMP_LOGO} alt="" className="colHeroStamp" />
           <p className="colHeroEyebrow">Future of Cities · ChoZen · April 2026</p>
           <h1 className="colHeroTitle">
             <span>Chozen</span>

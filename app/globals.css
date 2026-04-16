@@ -794,6 +794,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--warm-white)
 .colHeroVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .colHeroOverlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(26,17,10,0.55) 0%,rgba(26,17,10,0.35) 40%,rgba(26,17,10,0.65) 100%)}
 .colHeroContent{position:relative;z-index:2;text-align:center;padding:40px 24px;width:100%;max-width:1100px}
+.colHeroStamp{display:block;width:72px;height:72px;object-fit:contain;margin:0 auto 32px;filter:brightness(0) invert(1);opacity:0;animation:colFadeUp 1s 0.15s forwards}
 .colHeroEyebrow{font-size:0.62rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--col-gold-soft);margin-bottom:56px;font-weight:600;opacity:0;animation:colFadeUp 1s 0.4s forwards}
 .colHeroTitle{font-family:var(--font-display);font-weight:300;font-size:clamp(3.6rem,12vw,10rem);color:var(--col-bone);line-height:0.88;letter-spacing:0.01em;display:flex;flex-direction:column;align-items:center}
 .colHeroTitle > span{opacity:0;animation:colFadeUp 1.2s forwards}
@@ -873,16 +874,18 @@ body{font-family:var(--font-body);color:var(--text);background:var(--warm-white)
 .colSustainImgWrap{position:relative;aspect-ratio:21/9;border-radius:2px;overflow:hidden;margin-bottom:80px;max-width:1280px;margin-left:auto;margin-right:auto}
 .colSustainImg{width:100%;height:100%;object-fit:cover;display:block}
 .colSustainImgOverlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,17,10,0) 40%,rgba(26,17,10,0.5) 100%)}
-.colSustainGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--col-line-dark);border:1px solid var(--col-line-dark)}
-.colSustainCard{background:#1a110a;padding:40px 28px 44px;display:flex;flex-direction:column;gap:14px;transition:background 0.4s ease}
+.colSustainGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--col-line-dark);border:1px solid var(--col-line-dark);align-items:stretch}
+.colSustainGrid > *{display:flex;flex-direction:column}
+.colSustainCard{background:#1a110a;padding:40px 28px 44px;display:flex;flex-direction:column;gap:14px;transition:background 0.4s ease;flex:1}
 .colSustainCard:hover{background:#241810}
 .colSustainNum{font-family:var(--font-display);font-size:0.75rem;color:var(--col-gold);letter-spacing:0.3em;font-weight:500}
 .colSustainCard h3{font-family:var(--font-display);font-weight:500;font-size:1.5rem;color:var(--col-bone);letter-spacing:0.01em}
 .colSustainCard p{font-size:0.92rem;line-height:1.7;color:rgba(246,241,231,0.68)}
 
 /* ─── PARTNERSHIP ─── */
-.colPartnerGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--col-line);border:1px solid var(--col-line)}
-.colPartnerCard{background:var(--col-bone);padding:48px 44px 52px;display:flex;flex-direction:column;gap:14px;transition:background 0.4s}
+.colPartnerGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--col-line);border:1px solid var(--col-line);align-items:stretch}
+.colPartnerGrid > *{display:flex;flex-direction:column}
+.colPartnerCard{background:var(--col-bone);padding:48px 44px 52px;display:flex;flex-direction:column;gap:14px;transition:background 0.4s;flex:1}
 .colPartnerCard:hover{background:#fbf6ec}
 .colPartnerNum{font-family:var(--font-display);font-size:0.72rem;color:var(--col-gold);letter-spacing:0.3em;font-weight:600;margin-bottom:6px}
 .colPartnerRole{font-size:0.6rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--col-clay);font-weight:700;font-family:var(--font-body)}
