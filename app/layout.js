@@ -1,9 +1,9 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "CHOZEN — Investment & Brand Deck 2025",
+  title: "ChoZen Colombia — A Regenerative Community in the Colombian Highlands",
   description:
-    "A camp for the humanity of the future. Where nature is the ceremony. Innovation. Transformation. Regeneration.",
+    "ChoZen Colombia is a living community built around wellbeing, regenerative agriculture, and a deep connection to the land and culture of Colombia. Future of Cities × ChoZen × Click Clack.",
 };
 
 export default function RootLayout({ children }) {
