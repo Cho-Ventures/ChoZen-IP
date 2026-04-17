@@ -37,7 +37,16 @@ const IMG = {
   village250: encode("Photorealistic drone photograph taken from 250 feet above a Colombian mountain villag 748238.png"),
   highAltitude: encode("Photorealistic high-altitude drone photograph from 500 feet above a luxury regenerati 748238.png"),
   topDown: encode("Photorealistic top-down drone photograph from 400 feet directly above a luxury Colomb 748238.png"),
+  horses: encode("Beautiful Paso Fino horses grazing in a lush green Colombian highland meadow, a woode 869429.png"),
+  artisanVillage: encode("Small artisan retail village in the Colombian highlands, charming storefronts with ha 869429.png"),
+  sunsetGathering: encode("An outdoor community gathering in a Colombian mountain village at sunset, a long wood 748238.png"),
 };
+
+const GALLERY = [
+  { img: IMG.horses, caption: "Paso Fino on the highland", sub: "Equestrian trails" },
+  { img: IMG.artisanVillage, caption: "Artisan village", sub: "Storefronts, open doors" },
+  { img: IMG.sunsetGathering, caption: "Sobremesa", sub: "Long tables at sunset" },
+];
 
 // ═══════════════════════════════════════════════════════════════
 // DATA
@@ -568,6 +577,33 @@ export default function Home() {
                     <p>{s.desc}</p>
                   </div>
                 </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ GALLERY — life in the community ═══ */}
+      <section className="colGallerySec">
+        <div className="colWrap">
+          <div className="colSecHead">
+            <FadeIn><p className="colEyebrow">The Feeling</p></FadeIn>
+            <FadeIn delay={0.1}>
+              <h2 className="colSecTitle">Horses in the meadow.<br/><em>Long tables at dusk.</em></h2>
+            </FadeIn>
+          </div>
+          <div className="colGallery">
+            {GALLERY.map((g, i) => (
+              <FadeIn key={i} delay={i * 0.1}>
+                <figure className="colGalleryItem">
+                  <div className="colGalleryImg">
+                    <img src={g.img} alt={g.caption} loading="lazy" />
+                  </div>
+                  <figcaption>
+                    <span className="colGalleryCap">{g.caption}</span>
+                    <span className="colGallerySub">{g.sub}</span>
+                  </figcaption>
+                </figure>
               </FadeIn>
             ))}
           </div>
