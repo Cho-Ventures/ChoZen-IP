@@ -803,9 +803,9 @@ body{font-family:var(--font-body);color:var(--text);background:var(--warm-white)
 .colHeroLine{width:64px;height:1px;background:var(--col-gold);margin:36px auto 24px;opacity:0;animation:colFadeUp 1s 1.2s forwards}
 .colHeroSub{font-family:var(--font-display);font-style:italic;font-weight:400;font-size:clamp(1.1rem,2.4vw,1.7rem);color:var(--col-bone);opacity:0;animation:colFadeUp 1s 1.3s forwards;letter-spacing:0.02em}
 .colHeroLocation{font-size:0.62rem;letter-spacing:0.4em;text-transform:uppercase;color:rgba(246,241,231,0.7);margin-top:22px;font-weight:500;opacity:0;animation:colFadeUp 1s 1.5s forwards}
-.colHeroCoBrand{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:44px;opacity:0;animation:colFadeUp 1s 1.65s forwards}
+.colHeroCoBrand{display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:52px;opacity:0;animation:colFadeUp 1s 1.65s forwards}
 .colHeroCoBrandLabel{font-size:0.58rem;letter-spacing:0.4em;text-transform:uppercase;color:rgba(246,241,231,0.55);font-weight:500;font-family:var(--font-body)}
-.colHeroCoBrandLogo{display:block;height:40px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.92;transition:opacity 0.3s}
+.colHeroCoBrandLogo{display:block;height:88px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.95;transition:opacity 0.3s}
 .colHeroCoBrand:hover .colHeroCoBrandLogo{opacity:1}
 .colHeroScroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:12px;text-decoration:none;opacity:0;animation:colFadeUp 1s 1.8s forwards}
 .colHeroScrollText{font-size:0.6rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--col-gold-soft);font-weight:600;font-style:italic;font-family:var(--font-display)}
