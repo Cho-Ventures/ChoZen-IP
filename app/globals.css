@@ -803,6 +803,10 @@ body{font-family:var(--font-body);color:var(--text);background:var(--warm-white)
 .colHeroLine{width:64px;height:1px;background:var(--col-gold);margin:36px auto 24px;opacity:0;animation:colFadeUp 1s 1.2s forwards}
 .colHeroSub{font-family:var(--font-display);font-style:italic;font-weight:400;font-size:clamp(1.1rem,2.4vw,1.7rem);color:var(--col-bone);opacity:0;animation:colFadeUp 1s 1.3s forwards;letter-spacing:0.02em}
 .colHeroLocation{font-size:0.62rem;letter-spacing:0.4em;text-transform:uppercase;color:rgba(246,241,231,0.7);margin-top:22px;font-weight:500;opacity:0;animation:colFadeUp 1s 1.5s forwards}
+.colHeroCoBrand{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:44px;opacity:0;animation:colFadeUp 1s 1.65s forwards}
+.colHeroCoBrandLabel{font-size:0.58rem;letter-spacing:0.4em;text-transform:uppercase;color:rgba(246,241,231,0.55);font-weight:500;font-family:var(--font-body)}
+.colHeroCoBrandLogo{display:block;height:22px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.88;transition:opacity 0.3s}
+.colHeroCoBrand:hover .colHeroCoBrandLogo{opacity:1}
 .colHeroScroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:12px;text-decoration:none;opacity:0;animation:colFadeUp 1s 1.8s forwards}
 .colHeroScrollText{font-size:0.6rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--col-gold-soft);font-weight:600;font-style:italic;font-family:var(--font-display)}
 .colHeroScrollChev{display:block;width:1px;height:44px;background:linear-gradient(to bottom,var(--col-gold-soft),transparent);animation:colPulse 2.4s infinite}
@@ -863,6 +867,9 @@ body{font-family:var(--font-body);color:var(--text);background:var(--warm-white)
 .colCommTitle{font-family:var(--font-display);font-weight:400;font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--col-coffee);line-height:1.18;margin-bottom:24px;letter-spacing:-0.005em}
 .colCommDesc{font-size:1.02rem;line-height:1.8;color:var(--col-ink-2);margin-bottom:20px}
 .colCommNote{font-family:var(--font-display);font-style:italic;font-size:1.08rem;color:var(--col-clay);line-height:1.6;padding-left:22px;border-left:2px solid var(--col-gold)}
+.colCommCoBrand{display:flex;align-items:center;gap:14px;margin:4px 0 14px;padding:14px 0;border-top:1px solid var(--col-line);border-bottom:1px solid var(--col-line)}
+.colCommCoBrandLabel{font-size:0.58rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--col-ink-3);font-weight:600;flex-shrink:0}
+.colCommCoBrand img{display:block;height:22px;width:auto;object-fit:contain}
 
 /* ─── WOVEN ─── */
 .colWoven{padding:clamp(90px,12vw,160px) 0;background:linear-gradient(170deg,var(--col-coffee) 0%,#2b1c10 100%);color:var(--col-bone);text-align:center}
@@ -891,6 +898,8 @@ body{font-family:var(--font-body);color:var(--text);background:var(--warm-white)
 .colPartnerRole{font-size:0.6rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--col-clay);font-weight:700;font-family:var(--font-body)}
 .colPartnerName{font-family:var(--font-display);font-weight:500;font-size:clamp(1.6rem,2.6vw,2.2rem);color:var(--col-coffee);letter-spacing:-0.005em}
 .colPartnerDesc{font-size:0.96rem;line-height:1.75;color:var(--col-ink-2);margin-top:4px}
+.colPartnerLogoWrap{display:flex;align-items:center;min-height:64px;padding:4px 0}
+.colPartnerLogo{display:block;height:40px;width:auto;max-width:240px;object-fit:contain}
 
 /* ─── HOW IT WORKS ─── */
 .colHowItWorks{padding:clamp(100px,12vw,180px) 0;background:var(--col-bone)}
@@ -987,6 +996,10 @@ body{font-family:var(--font-body);color:var(--text);background:var(--warm-white)
 .colFooterMeta a:hover{border-color:var(--col-gold-soft)}
 .colFooterLine{width:100%;height:1px;background:rgba(246,241,231,0.1);margin:32px 0 20px}
 .colFooterSmall{font-size:0.68rem;color:rgba(246,241,231,0.4);letter-spacing:0.05em}
+.colFooterPartner{display:flex;flex-direction:column;align-items:center;gap:8px}
+.colFooterPartnerLabel{font-size:0.58rem;letter-spacing:0.4em;text-transform:uppercase;color:rgba(246,241,231,0.5);font-weight:500}
+.colFooterPartnerLogo{display:block;height:22px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.82}
+.colFooterMetaCenter{text-align:center;margin-top:8px}
 
 /* ─── RESPONSIVE ─── */
 @media (max-width:1100px){

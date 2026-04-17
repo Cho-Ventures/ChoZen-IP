@@ -13,6 +13,7 @@ const encode = (name) => `${BLOB}/${encodeURIComponent(name)}`;
 const encodeVideo = (name) => `${VIDEO_BLOB}/${encodeURIComponent(name)}`;
 
 const STAMP_LOGO = `${IMG_BLOB}/chozen-stamp.png`;
+const CLICK_CLACK_LOGO = "https://zicvctuf51wytcty.public.blob.vercel-storage.com/logo-click-clack-negro.png";
 
 const VIDEO = {
   heroPullback: encodeVideo("Firefly Epic slow cinematic drone pullback rising gradually from the luxury mountain village, reveal.mp4"),
@@ -71,11 +72,12 @@ const COMMUNITY = [
   },
   {
     num: "03",
-    title: "Boutique Hotel — Click Clack",
+    title: "Boutique Hotel",
     tag: "The Front Door",
     desc: "A design-forward, culturally rooted boutique hotel bringing world-class Colombian hospitality. Click Clack's operational credibility and design sensibility paired with the ChoZen ethos — serving as the community's front door to the world.",
     note: "Co-branded Click Clack × ChoZen.",
     img: IMG.boutiqueHotel,
+    cobrand: CLICK_CLACK_LOGO,
   },
   {
     num: "04",
@@ -123,6 +125,7 @@ const PARTNERS = [
     name: "Click Clack",
     role: "Hospitality & Operations",
     desc: "Operates the boutique hotel and retreat center, bringing design sensibility, brand, and operational infrastructure. Click Clack also participates in capital sourcing through its investor network.",
+    logo: CLICK_CLACK_LOGO,
   },
 ];
 
@@ -300,6 +303,12 @@ function CommunityCard({ item, index }) {
       <div className="colCommBody">
         <p className="colCommTag">{item.tag}</p>
         <h3 className="colCommTitle">{item.title}</h3>
+        {item.cobrand && (
+          <div className="colCommCoBrand">
+            <span className="colCommCoBrandLabel">Operated by</span>
+            <img src={item.cobrand} alt="Click Clack" />
+          </div>
+        )}
         <p className="colCommDesc">{item.desc}</p>
         <p className="colCommNote">— {item.note}</p>
       </div>
@@ -376,6 +385,10 @@ export default function Home() {
           <div className="colHeroLine" />
           <p className="colHeroSub">A Regenerative Community in the Colombian Highlands</p>
           <p className="colHeroLocation">Medellín · Antioquia</p>
+          <div className="colHeroCoBrand">
+            <span className="colHeroCoBrandLabel">In partnership with</span>
+            <img src={CLICK_CLACK_LOGO} alt="Click Clack" className="colHeroCoBrandLogo" />
+          </div>
         </div>
         <a href="#vision" className="colHeroScroll">
           <span className="colHeroScrollText">Descubrir</span>
@@ -498,10 +511,16 @@ export default function Home() {
           <div className="colPartnerGrid">
             {PARTNERS.map((p, i) => (
               <FadeIn key={i} delay={i * 0.08}>
-                <div className="colPartnerCard">
+                <div className={`colPartnerCard ${p.logo ? "colPartnerCardLogo" : ""}`}>
                   <span className="colPartnerNum">0{i + 1}</span>
                   <p className="colPartnerRole">{p.role}</p>
-                  <h3 className="colPartnerName">{p.name}</h3>
+                  {p.logo ? (
+                    <div className="colPartnerLogoWrap">
+                      <img src={p.logo} alt={p.name} className="colPartnerLogo" />
+                    </div>
+                  ) : (
+                    <h3 className="colPartnerName">{p.name}</h3>
+                  )}
                   <p className="colPartnerDesc">{p.desc}</p>
                 </div>
               </FadeIn>
@@ -670,12 +689,16 @@ export default function Home() {
               <span className="colFooterDot">·</span>
               <span>COLOMBIA</span>
             </div>
-            <p className="colFooterMeta">Future of Cities · ChoZen · Cho Ventures · April 2026</p>
+            <div className="colFooterPartner">
+              <span className="colFooterPartnerLabel">Hospitality partner</span>
+              <img src={CLICK_CLACK_LOGO} alt="Click Clack" className="colFooterPartnerLogo" />
+            </div>
             <p className="colFooterMeta">
               <a href="/v2">View 2025 Brand & IP Deck →</a>
             </p>
           </div>
           <div className="colFooterLine" />
+          <p className="colFooterMeta colFooterMetaCenter">Future of Cities · ChoZen · Cho Ventures · April 2026</p>
           <p className="colFooterSmall">© 2026 Cho Ventures. All rights reserved. ChoZen® is a registered mark.</p>
         </div>
       </footer>
