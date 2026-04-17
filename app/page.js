@@ -30,7 +30,7 @@ const IMG = {
   boutiqueHotel: encode("Boutique hotel exterior in the Colombian coffee region mountains, modern minimalist a 869429.png"),
   wellnessRetreat: encode("Luxury wellness retreat center built into a Colombian mountainside, infinity-edge nat 869429.png"),
   farm: encode("Organic regenerative farm on a Colombian mountain terrace, neat rows of coffee plants 869429.png"),
-  schoolhouse: encode("A modern sustainable schoolhouse in the Colombian highlands, single-story building wi 869429.png"),
+  schoolhouse: `${BLOB}/medellin-school.png`,
   energy: encode("Sustainable energy infrastructure integrated into a lush Colombian mountain landscape 869429.png"),
   boutiqueAerial: encode("Photorealistic aerial drone photograph from 200 feet above, centered on a luxury bout 748238.png"),
   villageNight: encode("Photorealistic aerial drone photograph of a luxury Colombian mountain village at nigh 748238.png"),
@@ -684,33 +684,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══ GALLERY — life in the community ═══ */}
-      <section className="colGallerySec">
-        <div className="colWrap">
-          <div className="colSecHead">
-            <FadeIn><p className="colEyebrow">The Feeling</p></FadeIn>
-            <FadeIn delay={0.1}>
-              <h2 className="colSecTitle">Horses in the meadow.<br/><em>Long tables at dusk.</em></h2>
-            </FadeIn>
-          </div>
-          <div className="colGallery">
-            {GALLERY.map((g, i) => (
-              <FadeIn key={i} delay={i * 0.1}>
-                <figure className="colGalleryItem">
-                  <div className="colGalleryImg">
-                    <img src={g.img} alt={g.caption} loading="lazy" />
-                  </div>
-                  <figcaption>
-                    <span className="colGalleryCap">{g.caption}</span>
-                    <span className="colGallerySub">{g.sub}</span>
-                  </figcaption>
-                </figure>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ═══ TONY CHO QUOTE (over night video) ═══ */}
       <section className="colQuoteSection">
         <video className="colQuoteVideo" autoPlay muted loop playsInline poster={IMG.villageNight}>
@@ -737,25 +710,18 @@ export default function Home() {
       {/* ═══ CONTACT ═══ */}
       <section className="colContact" id="contact">
         <div className="colWrap">
-          <div className="colContactGrid">
-            <div>
-              <FadeIn><p className="colEyebrow">Connect</p></FadeIn>
-              <FadeIn delay={0.1}>
-                <h2 className="colContactTitle">Begin the<br/><em>conversation.</em></h2>
-              </FadeIn>
-              <FadeIn delay={0.2}>
-                <p className="colContactBody">
-                  If you are a landowner, investor, hospitality partner, or future resident who feels aligned with this vision — we would like to meet you in Medellín.
-                </p>
-                <div className="colContactLinks">
-                  <a href="mailto:hello@chozen.com" className="colContactLink">hello@chozen.com</a>
-                  <span className="colContactDot">·</span>
-                  <a href="https://futureofcities.co" target="_blank" rel="noreferrer" className="colContactLink">futureofcities.co</a>
-                </div>
-              </FadeIn>
-            </div>
-            <FadeIn delay={0.25}>
-              <ContactForm />
+          <div style={{textAlign:"center",maxWidth:"720px",margin:"0 auto"}}>
+            <FadeIn><p className="colEyebrow">Connect</p></FadeIn>
+            <FadeIn delay={0.1}>
+              <h2 className="colContactTitle">Begin the<br/><em>conversation.</em></h2>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <p className="colContactBody">
+                If you are a landowner, investor, hospitality partner, or future resident who feels aligned with this vision — we would like to meet you in Medellín.
+              </p>
+              <div className="colContactLinks" style={{justifyContent:"center"}}>
+                <a href="mailto:tcho@focities.com" className="colContactLink">tcho@focities.com</a>
+              </div>
             </FadeIn>
           </div>
         </div>
@@ -775,9 +741,6 @@ export default function Home() {
               <span className="colFooterPartnerLabel">Hospitality partner</span>
               <img src={CLICK_CLACK_LOGO} alt="Click Clack" className="colFooterPartnerLogo" />
             </div>
-            <p className="colFooterMeta">
-              <a href="/v2">View 2025 Brand & IP Deck →</a>
-            </p>
           </div>
           <div className="colFooterLine" />
           <p className="colFooterMeta colFooterMetaCenter">Future of Cities · ChoZen · Cho Ventures · April 2026</p>
