@@ -43,6 +43,17 @@ const IMG = {
   sunsetGathering: encode("An outdoor community gathering in a Colombian mountain village at sunset, a long wood 748238.png"),
 };
 
+const MEDELLIN_BLOB = "https://zicvctuf51wytcty.public.blob.vercel-storage.com/medellin";
+const MEDELLIN_HERO = {
+  img: `${MEDELLIN_BLOB}/ricardo-gomez-angel-GcHar4P8V_Q-unsplash.jpg`,
+  credit: "Ricardo Gomez Angel",
+};
+const MEDELLIN_GALLERY = [
+  { img: `${MEDELLIN_BLOB}/andres-gomez-r5jb6b3XBGE-unsplash.jpg`, caption: "Medellín", sub: "Photo · Andres Gomez" },
+  { img: `${MEDELLIN_BLOB}/carlos-martinez-KToQ45xT1JY-unsplash.jpg`, caption: "Antioquia", sub: "Photo · Carlos Martinez" },
+  { img: `${MEDELLIN_BLOB}/lawrson-pinson-v78Q07VnJBA-unsplash.jpg`, caption: "Highlands", sub: "Photo · Lawrson Pinson" },
+];
+
 const GALLERY = [
   { img: IMG.horses, caption: "Paso Fino on the highland", sub: "Equestrian trails" },
   { img: IMG.artisanVillage, caption: "Artisan village", sub: "Storefronts, open doors" },
@@ -58,41 +69,49 @@ const COMMUNITY = [
     num: "01",
     title: "Residential & Artisan Village",
     tag: "The Neighborhood",
-    desc: "A curated mix of homes, live-work studios, and artisan workshops woven together as a single neighborhood. Local Colombian artisans, farmers, and makers live alongside international residents — creating a productive community rooted in shared values and regenerative practices.",
-    note: "For-sale homes, fractional ownership, and affordable workforce housing integrated together, not separated.",
+    desc: "A curated mix of villas, casitas, live-work studios, artisan shops, and artisan homes woven together as a single neighborhood. Fractional ownership alongside full residences. Local Colombian artisans, farmers, and makers living alongside international residents — creating a productive community rooted in shared values and regenerative practices.",
+    note: "Locals and internationals as neighbors, not amenities.",
     img: IMG.finca,
   },
   {
     num: "02",
-    title: "Retreat & Wellness Center",
-    tag: "The Sanctuary",
-    desc: "An intimate sanctuary for transformational programming, healing, and immersive nature-based experiences — the spiritual heart of the community and a gateway for outside guests.",
-    note: "Bamboo pavilions, natural stone pools, and open-air spaces designed to honor the landscape.",
-    img: IMG.wellnessRetreat,
+    title: "The ChoZen Village",
+    tag: "The Heart of Daily Life",
+    desc: "The heart of everyday life — a walkable downtown with restaurants, a farm store, small businesses, and gathering spaces that serve both the community and the surrounding region. Not a gated enclave, but an open village that creates a positive impact on the local area.",
+    note: "Farmers markets, artisan markets, and authentic ground-level commerce that makes a place feel alive.",
+    img: IMG.artisanVillage,
   },
   {
     num: "03",
-    title: "Boutique Hotel",
+    title: "Retreat & Wellness Center",
+    tag: "The Sanctuary",
+    desc: "An intimate sanctuary for transformational programming, healing, and immersive nature-based experiences — the spiritual heart of the community and a gateway for outside guests. Bamboo pavilions, natural stone pools, and open-air spaces designed to honor the landscape.",
+    note: "If the land allows, natural thermal springs — Colombia's thermales — woven into the wellness experience.",
+    img: IMG.wellnessRetreat,
+  },
+  {
+    num: "04",
+    title: "Click Clack Hotel & Wellness Center",
     tag: "The Front Door",
-    desc: "A design-forward, culturally rooted boutique hotel bringing world-class Colombian hospitality. Click Clack's operational credibility and design sensibility paired with the ChoZen ethos — serving as the community's front door to the world.",
-    note: "Co-branded Click Clack × ChoZen.",
+    desc: "A Click Clack within the ChoZen community. Design-forward, culturally rooted, world-class Colombian hospitality — approximately 100 rooms bringing Click Clack's operational credibility and design sensibility to the highlands. The architecture draws on modern finca tradition with Japanese-Colombian design influences, inspired by the work of Simón Vélez, Colombia's master bamboo architect, and Kengo Kuma, the Japanese architect behind Click Clack's design language.",
+    note: "Click Clack manages the hotel, wellness center, and retreat operations. The brand is ChoZen Colombia.",
     img: IMG.boutiqueHotel,
     cobrand: CLICK_CLACK_LOGO,
   },
   {
-    num: "04",
+    num: "05",
     title: "The Farm",
     tag: "The Foundation",
-    desc: "Agriculture is not an amenity here — it is the foundation. Working coffee plantations, organic vegetable gardens, fruit orchards, and food forests integrated throughout the community.",
-    note: "Horses, equestrian trails, and a deep connection to the agricultural heritage of the region.",
+    desc: "Agriculture is not an amenity here — it is the foundation. Working coffee plantations, organic vegetable gardens, avocado groves, fruit orchards, and food forests integrated throughout the community. Horses, equestrian trails, and a deep connection to the agricultural heritage of the region.",
+    note: "Sustained through the HOA — making regenerative agriculture a permanent part of the community's economy, not a phase.",
     img: IMG.farm,
   },
   {
-    num: "05",
+    num: "06",
     title: "School",
     tag: "Future Phase",
-    desc: "A purpose-built learning environment rooted in nature-based education, indigenous knowledge, and the values of the ChoZen community — envisioned as a regional model for conscious education.",
-    note: "Planned for a future phase of the community.",
+    desc: "Green School meets STEM academy. A purpose-built learning environment where children learn pottery alongside programming, regenerative farming alongside robotics, indigenous knowledge alongside artificial intelligence. Medellín is the startup capital of Latin America — and this school will reflect that innovation culture while staying rooted in the land.",
+    note: "A school good enough that anyone in the world would want their children there.",
     img: IMG.schoolhouse,
   },
 ];
@@ -102,7 +121,7 @@ const SUSTAIN = [
   { key: "Water", desc: "Rainwater harvesting, greywater recycling, and closed-loop irrigation feeding the agricultural components." },
   { key: "Building", desc: "Rammed earth, bamboo, locally-sourced timber, living roofs. Modern finca architecture — contemporary yet rooted in Antioqueño tradition." },
   { key: "Conservation", desc: "Protected cloud forest, native planting corridors, watershed restoration, and regenerative land management as core elements — not afterthoughts." },
-  { key: "Food", desc: "Integrated working farms, kitchen gardens, and food forests as productive infrastructure serving the entire community." },
+  { key: "Food", desc: "Integrated working farms, farm-to-table restaurant, farm store, and food forests as productive infrastructure serving the entire community." },
 ];
 
 const PARTNERS = [
@@ -114,17 +133,17 @@ const PARTNERS = [
   {
     name: "Future of Cities",
     role: "The Developer",
-    desc: "Master developer bringing 20 years of regenerative placemaking. Tony Cho's track record — Wynwood, Magic City, Phoenix Arts & Innovation District, and ChoZen — represents one of the most accomplished portfolios in purpose-driven development.",
+    desc: "Master developer bringing 20 years of regenerative placemaking. Tony Cho's track record — Wynwood, Magic City, Phoenix Arts & Innovation District, and ChoZen — represents one of the most accomplished portfolios in purpose-driven development. FOC also brings its own certification framework — the Future of Cities Regenerative Placemaking Standards — ensuring every aspect of the project meets the highest benchmarks.",
   },
   {
     name: "Landowner Partners",
     role: "The Local Knowledge",
-    desc: "Colombian family offices contributing land and local knowledge. Land is contributed as equity — landowners become co-owners of the community's upside, not one-time sellers.",
+    desc: "Colombian family offices contributing land and local knowledge. Land is contributed as equity — landowners become co-owners of the community's upside, not one-time sellers. They bring irreplaceable sites, ecological knowledge, established community relationships, and the trust that only local partners can provide.",
   },
   {
     name: "Click Clack",
     role: "Hospitality & Operations",
-    desc: "Operates the boutique hotel and retreat center, bringing design sensibility, brand, and operational infrastructure. Click Clack also participates in capital sourcing through its investor network.",
+    desc: "Operates the boutique hotel, wellness center, and retreat within the ChoZen community — bringing design sensibility, brand, and operational infrastructure. Click Clack also participates in capital sourcing, leveraging its investor network, Colombian family office relationships, and international buyer network.",
     logo: CLICK_CLACK_LOGO,
   },
 ];
@@ -275,7 +294,7 @@ function VideoBreak({ src, height = "85vh", subtitle, title, caption, overlay = 
   );
 }
 
-function ImageBreak({ img, height = "70vh", subtitle, title, caption, overlay = 0.5, speed = 0.2 }) {
+function ImageBreak({ img, height = "70vh", subtitle, title, caption, overlay = 0.5, speed = 0.2, credit }) {
   const { ref, offset } = useParallax(speed);
   return (
     <div className="colImageBreak" style={{ height }} ref={ref}>
@@ -287,6 +306,14 @@ function ImageBreak({ img, height = "70vh", subtitle, title, caption, overlay = 
           {title && <h2 className="colImageBreakTitle">{title}</h2>}
           {caption && <p className="colImageBreakCaption">{caption}</p>}
         </div>
+      )}
+      {credit && (
+        <span style={{
+          position: "absolute", right: "1.25rem", bottom: "0.9rem",
+          fontSize: "0.68rem", letterSpacing: "0.16em", textTransform: "uppercase",
+          color: "rgba(255,255,255,0.7)", fontWeight: 400,
+          textShadow: "0 1px 6px rgba(0,0,0,0.5)", zIndex: 2,
+        }}>Photo · {credit}</span>
       )}
     </div>
   );
@@ -407,10 +434,65 @@ export default function Home() {
           </TextReveal>
           <FadeIn delay={0.2}>
             <div className="colManifestoBody">
-              <p>Set within the mountains of Antioquia — surrounded by cloud forest, river valleys, waterfalls, and working coffee plantations — ChoZen Colombia will be the most purposeful realization of the ChoZen concept to date.</p>
+              <p>Set within the mountains of Antioquia — surrounded by cloud forest, river valleys, waterfalls, and working plantations — ChoZen Colombia will be the most purposeful realization of the ChoZen concept to date.</p>
               <p>This is <strong>not a real estate development</strong>. It is a living community built around wellbeing, regenerative agriculture, and a deep connection to the land and culture of Colombia. Local Colombian families and international residents coming together — aligned by shared values — into a single, beautifully diverse community where artisans, farmers, and makers are neighbors, not amenities.</p>
+              <p>Antioqueño modern architecture with a touch of ChoZen zen — whitewashed walls, natural wood beams, terracotta tile, open-air corridors, handcrafted ceramic details, bamboo structures inspired by Colombia's master builders — set against one of the most extraordinary landscapes on earth.</p>
             </div>
           </FadeIn>
+        </div>
+      </section>
+
+      {/* ═══ MEDELLÍN IMAGE BREAK ═══ */}
+      <ImageBreak
+        img={MEDELLIN_HERO.img}
+        credit={MEDELLIN_HERO.credit}
+        height="75vh"
+        subtitle="Medellín · Antioquia"
+        title={<>The city of<br/><em>eternal spring.</em></>}
+        caption="65–75°F year-round. Surrounded by green mountains. The gateway to ChoZen Colombia."
+        overlay={0.45}
+        speed={0.25}
+      />
+
+      {/* ═══ WHY MEDELLÍN ═══ */}
+      <section className="colHowItWorks" id="medellin">
+        <div className="colWrap">
+          <div className="colHowGrid">
+            <div>
+              <FadeIn><p className="colEyebrow">Why Medellín</p></FadeIn>
+              <FadeIn delay={0.1}>
+                <h2 className="colHowTitle">One hour to<br/><em>the destination.</em></h2>
+              </FadeIn>
+            </div>
+            <div className="colHowBody">
+              <FadeIn delay={0.15}>
+                <p>65 to 75°F year-round, surrounded by green mountains, and consistently ranked among the world&apos;s most innovative and livable cities.</p>
+                <p>Direct flights from major cities across the United States and Latin America. A thriving startup and innovation culture that has made it the entrepreneurial capital of the region. A city that planted eight million trees and lowered its temperature through urban design. World-class dining, art, and culture — all within an hour of ChoZen Colombia and the new international airport.</p>
+                <p><em>This is the gateway. ChoZen Colombia is the destination.</em></p>
+              </FadeIn>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ MEDELLÍN GALLERY ═══ */}
+      <section className="colGallerySec">
+        <div className="colWrap">
+          <div className="colGallery">
+            {MEDELLIN_GALLERY.map((g, i) => (
+              <FadeIn key={i} delay={i * 0.1}>
+                <figure className="colGalleryItem">
+                  <div className="colGalleryImg">
+                    <img src={g.img} alt={g.caption} loading="lazy" />
+                  </div>
+                  <figcaption>
+                    <span className="colGalleryCap">{g.caption}</span>
+                    <span className="colGallerySub">{g.sub}</span>
+                  </figcaption>
+                </figure>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -430,10 +512,10 @@ export default function Home() {
           <div className="colSecHead">
             <FadeIn><p className="colEyebrow">The Community</p></FadeIn>
             <FadeIn delay={0.1}>
-              <h2 className="colSecTitle">Four interconnected components.<br/><em>A fifth to follow.</em></h2>
+              <h2 className="colSecTitle">Five interconnected components.<br/><em>A sixth to follow.</em></h2>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <p className="colSecDesc">ChoZen Colombia brings together five interconnected components. Each reinforces the others. Together they form something none of them could alone.</p>
+              <p className="colSecDesc">ChoZen Colombia brings together six interconnected components. Each reinforces the others. Together they form something none of them could alone.</p>
             </FadeIn>
           </div>
           <div className="colCommList">
