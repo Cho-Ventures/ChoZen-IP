@@ -6,7 +6,7 @@ const VIDEO_BLOB = "https://zicvctuf51wytcty.public.blob.vercel-storage.com/rend
 const IMG_BLOB = "https://zicvctuf51wytcty.public.blob.vercel-storage.com/images";
 
 // ═══════════════════════════════════════════════════════════════
-// MEDIA — direct blob URLs (spaces encoded)
+// MEDIA
 // ═══════════════════════════════════════════════════════════════
 
 const encode = (name) => `${BLOB}/${encodeURIComponent(name)}`;
@@ -23,24 +23,51 @@ const VIDEO = {
   bambooPushIn: encodeVideo("Firefly Slow push-in toward the bamboo wellness pavilion, steam rises gently from the stone pool sur.mp4"),
 };
 
+// Real Finca San Pascual photos in /public/finca/
+const FINCA = (n) => `/finca/finca-${String(n).padStart(2, "0")}.jpeg`;
+
+const PHOTO = {
+  // honoring family
+  oldFarmhouse: FINCA(10),                  // brick farmhouse w/ Pedro + dog
+  coffeePickers: FINCA(40),                 // smallholder pickers
+  coffeeRows: FINCA(25),                    // coffee groves on slopes
+  coffeeProcessing: FINCA(1),               // bamboo coffee drying infrastructure
+  // landscape / Cerro Bravo
+  cerroBravoView: FINCA(20),                // mountain through trees
+  sunsetMountain: FINCA(35),                // mountain at sunset
+  treeLandscape: FINCA(15),                 // big tree
+  // equestrian
+  equestrian: FINCA(30),                    // riding through coffee groves
+  // additional candids for galleries
+  pic02: FINCA(2),
+  pic03: FINCA(3),
+  pic04: FINCA(4),
+  pic05: FINCA(5),
+  pic06: FINCA(6),
+  pic07: FINCA(7),
+  pic08: FINCA(8),
+  pic09: FINCA(9),
+  pic11: FINCA(11),
+  pic12: FINCA(12),
+  pic13: FINCA(13),
+  pic14: FINCA(14),
+  pic16: FINCA(16),
+  pic18: FINCA(18),
+  pic22: FINCA(22),
+  pic24: FINCA(24),
+  pic28: FINCA(28),
+  pic32: FINCA(32),
+  pic38: FINCA(38),
+  pic42: FINCA(42),
+};
+
 const IMG = {
-  masterPlan: encode("ChoZen-Colombia.png"),
   villageAerial: encode("Aerial photograph of a luxury sustainable village nestled into a lush green Colombian 869429.png"),
   finca: encode("Colombian finca-style residential home with open-air corridors, whitewashed wa 869429.png"),
   boutiqueHotel: encode("Boutique hotel exterior in the Colombian coffee region mountains, modern minimalist a 869429.png"),
   wellnessRetreat: encode("Luxury wellness retreat center built into a Colombian mountainside, infinity-edge nat 869429.png"),
-  farm: encode("Organic regenerative farm on a Colombian mountain terrace, neat rows of coffee plants 869429.png"),
   schoolhouse: `${BLOB}/medellin-school.png`,
-  energy: encode("Sustainable energy infrastructure integrated into a lush Colombian mountain landscape 869429.png"),
-  boutiqueAerial: encode("Photorealistic aerial drone photograph from 200 feet above, centered on a luxury bout 748238.png"),
   villageNight: encode("Photorealistic aerial drone photograph of a luxury Colombian mountain village at nigh 748238.png"),
-  approaching: encode("Photorealistic drone photograph approaching a luxury Colombian mountain community fro 748238.png"),
-  village250: encode("Photorealistic drone photograph taken from 250 feet above a Colombian mountain villag 748238.png"),
-  highAltitude: encode("Photorealistic high-altitude drone photograph from 500 feet above a luxury regenerati 748238.png"),
-  topDown: encode("Photorealistic top-down drone photograph from 400 feet directly above a luxury Colomb 748238.png"),
-  horses: encode("Beautiful Paso Fino horses grazing in a lush green Colombian highland meadow, a woode 869429.png"),
-  artisanVillage: encode("Small artisan retail village in the Colombian highlands, charming storefronts with ha 869429.png"),
-  sunsetGathering: encode("An outdoor community gathering in a Colombian mountain village at sunset, a long wood 748238.png"),
 };
 
 const MEDELLIN_BLOB = "https://zicvctuf51wytcty.public.blob.vercel-storage.com/medellin";
@@ -48,138 +75,170 @@ const MEDELLIN_HERO = {
   img: `${MEDELLIN_BLOB}/ricardo-gomez-angel-GcHar4P8V_Q-unsplash.jpg`,
   credit: "Ricardo Gomez Angel",
 };
-const MEDELLIN_GALLERY = [
-  { img: `${MEDELLIN_BLOB}/andres-gomez-r5jb6b3XBGE-unsplash.jpg`, caption: "Medellín", sub: "Photo · Andres Gomez" },
-  { img: `${MEDELLIN_BLOB}/carlos-martinez-KToQ45xT1JY-unsplash.jpg`, caption: "Antioquia", sub: "Photo · Carlos Martinez" },
-  { img: `${MEDELLIN_BLOB}/lawrson-pinson-v78Q07VnJBA-unsplash.jpg`, caption: "Highlands", sub: "Photo · Lawrson Pinson" },
-];
-
-const GALLERY = [
-  { img: IMG.horses, caption: "Paso Fino on the highland", sub: "Equestrian trails" },
-  { img: IMG.artisanVillage, caption: "Artisan village", sub: "Storefronts, open doors" },
-  { img: IMG.sunsetGathering, caption: "Sobremesa", sub: "Long tables at sunset" },
-];
 
 // ═══════════════════════════════════════════════════════════════
 // DATA
 // ═══════════════════════════════════════════════════════════════
 
-const COMMUNITY = [
+// Honoring Pergamino & the Echavarría family — what their legacy is
+const FAMILY_LEGACY = [
+  {
+    year: "1970s",
+    title: "La Máquina, Fredonia",
+    body: "Don Pedro Echavarría receives the historic La Máquina farm in Fredonia as a legacy from a great-aunt and renovates its abandoned coffee plantation — the beginning of the family's roots in the Suroeste corridor.",
+  },
+  {
+    year: "Santa Bárbara Platform",
+    title: "Lomaverde + Veracruz",
+    body: "The family expands into the neighboring municipality of Santa Bárbara, where Lomaverde becomes the flagship of Santa Barbara Estate alongside sister parcels — building a multi-farm specialty platform across Antioquia.",
+  },
+  {
+    year: "2010 →",
+    title: "Pedro Jr. & Pergamino",
+    body: "Pedro Echavarría Jr. builds Pergamino Coffee from 2010 onward — a high-end specialty coffee brand and the retail-and-export extension of the family's farming operation. Today: a national café footprint, exports to specialty roasters on four continents, and ongoing offtake support for a network of smallholder producers.",
+  },
+  {
+    year: "Today",
+    title: "Smallholder Network",
+    body: "Pergamino works with a broad network of small farmers across Antioquia, Cauca, and Nariño — supporting their craft, their families, and their land through premium offtake. Supporting these growers is the cultural foundation of the project.",
+  },
+];
+
+// Six components — restructured per Tony's feedback
+const COMPONENTS = [
   {
     num: "01",
-    title: "The Residential & Artisan Village",
-    tag: "Six Cohorts · Three Bands",
-    desc: "~150 units across three bands. Workforce + affordable in Los Palomos and at the Finca entrance. Artisan live-work studios with ground-floor workshop and residence above. Family homes and entrepreneur/remote-worker residences on the higher levels. Two senior tiers — affordable in town, luxury concierge with Blue Zones longevity programming on the slopes. A small tier of coffee-grove villas at the top. Full and fractional ownership.",
-    note: "Locals and internationals as neighbors, not amenities. Workforce housing is structural, not incidental.",
-    img: IMG.finca,
+    title: "Residential & Artisan Village",
+    tag: "The Neighborhood",
+    desc: "A village across two on-site bands plus a town anchor. Workforce housing at the Finca entrance for farm and village teams. The residential village on the higher levels — artist and maker live-work, family homes, entrepreneur and remote-worker residences, and a luxury senior tier with longevity programming. Off-site, in the town of Los Palomos, additional workforce and affordable housing alongside an affordable senior tier — co-located with the public clinic and school.",
+    note: "Locals and internationals as neighbors. Workforce housing is structural, not incidental.",
+    img: PHOTO.oldFarmhouse,
   },
   {
     num: "02",
-    title: "The ChoZen Village · The Level 1 Gateway",
-    tag: "The First Arrival",
-    desc: "The walkable plaza at the entrance of Finca Pascal — coffee farm, equestrian stables, activities center, weekly and monthly farmers market, Pergamino flagship coffee bar, Click Clack-operated farm-to-table restaurants and cafés, artisan retail under an Artesanías de Colombia-curated flagship, and co-working integrated with the plaza. Open to Fredonia, Los Palomos, and the surrounding veredas.",
-    note: "The first arrival experience is the working agricultural life of the land — not a gatehouse.",
-    img: IMG.artisanVillage,
-  },
-  {
-    num: "03",
-    title: "The Sanctuary · Retreat & Wellness Center",
-    tag: "Blue Zones Programming",
-    desc: "Bamboo pavilions, natural stone pools, open-air movement studios, hydrotherapy, medicinal-plant greenhouse, sauna and steam, nutrition kitchen. Anchor programs: Blue Zones Living signature programming, ChoZen retreats, private corporate retreats, physician-led clinical wellness integrated with the public clinic. Thermal springs woven in if the geological survey confirms feasibility.",
-    note: "Sliding-scale access for Los Palomos and Fredonia residents.",
+    title: "Sanctuary · Retreat & Wellness Center",
+    tag: "The Spiritual Heart",
+    desc: "An intimate sanctuary for transformational programming, healing, and immersive nature-based experiences — bamboo pavilions, natural stone pools, open-air movement studios, hydrotherapy, medicinal-plant greenhouse. Anchor programs include Blue Zones longevity, ChoZen retreats, and physician-led clinical wellness integrated with the public clinic. Sliding-scale access for Los Palomos and Fredonia residents.",
+    note: "If the geological survey confirms feasibility, natural thermal springs woven into the experience.",
     img: IMG.wellnessRetreat,
   },
   {
-    num: "04",
-    title: "Click Clack · Hotel · Wellness · F&B as One Platform",
-    tag: "~100 Keys · One Operator",
-    desc: "Approximately 100 keys — ~60 in the main lodge, ~40 in dispersed cabin and casita clusters along the coffee-grove contours. Click Clack operates the hotel, the wellness sanctuary, and the farm-to-table F&B as a single integrated platform under one design language. Pergamino runs the flagship coffee bar. Culinary artisans graduating from the Makers Academy and regional chefs join over time under Click Clack's operating oversight.",
-    note: "Architecture lineage: Simón Vélez (bamboo) and Kengo Kuma — already present in Click Clack's existing properties.",
+    num: "03",
+    title: "Click Clack Boutique Hotel",
+    tag: "Design-Forward Hospitality",
+    desc: "A Click Clack within ChoZen Colombia — culturally rooted, design-forward Colombian hospitality. Modern finca tradition with Japanese-Colombian design influences, in the architectural lineage of Simón Vélez (Colombia's master of bamboo) and Kengo Kuma (the Japanese architect behind Click Clack's design language).",
+    note: "Click Clack operates the boutique hotel and the farm-to-table F&B as one platform.",
     img: IMG.boutiqueHotel,
     cobrand: CLICK_CLACK_LOGO,
   },
   {
+    num: "04",
+    title: "Pergamino Farm Hotel",
+    tag: "Coffee Heritage Stay",
+    desc: "A second, smaller hotel — born of the farm itself. A coffee-heritage guesthouse rooted in the working agricultural life of Finca San Pascual: coffee processing yards, the brick farmhouse, the morning harvest, the evening sobremesa. Two complementary hotels on the property — one design-forward, one coffee-rooted — each offering a different way to experience the land.",
+    note: "Operated under Pergamino's stewardship in coordination with the broader hospitality platform.",
+    img: PHOTO.coffeeProcessing,
+  },
+  {
     num: "05",
-    title: "The Regenerative Farm + Equestrian",
-    tag: "Pergamino Stewardship",
-    desc: "Agriculture is not an amenity — it is the foundation. Finca Pascal's specialty-coffee operation preserved under Pergamino stewardship; export channel maintained; regenerative-practice certification pursued. Diversification into vegetables, fruit, food forests, herbs, honey, dairy, pasture-raised proteins. Premium-priced offtake with the 600+ Allied Producers across Antioquia, Cauca, and Nariño. Equestrian stables and trails honoring the agricultural heritage of the region.",
-    note: "The farm feeds the hotel, the restaurants, the senior-living kitchens, and the weekly market.",
-    img: IMG.farm,
+    title: "Pergamino × ChoZen Regenerative Farm + Equestrian Center",
+    tag: "The Foundation",
+    desc: "Agriculture is not an amenity — it is the foundation. Finca San Pascual's specialty-coffee operation preserved and elevated under Pergamino stewardship; export channel maintained; regenerative-practice certification pursued. Diversification into vegetables, fruit, food forests, herbs, dairy, pasture-raised proteins. An equestrian center near the horse pastures honors the agricultural heritage of the region — trails through the coffee groves and out to the higher meadows.",
+    note: "The farm feeds the hotels, the village kitchens, and the weekly market — and supports the broader Pergamino network.",
+    img: PHOTO.equestrian,
   },
   {
     num: "06",
-    title: "Two Schools + Makers Academy + Public Clinic",
-    tag: "Public Anchors · Co-Built with Government",
-    desc: "ChoZen School (higher levels) — K–11 Green School × Ad Astra; bilingual; bamboo and rammed earth; 30%+ scholarship seats for local families; cross-enrollment with the public school. Public school in Los Palomos — K–11 classical Colombian curriculum modernized under Alianza ERA; SENA-aligned vocational tracks. Makers Academy — SENA + Artesanías de Colombia + Escuelas Taller; 80% local seats free or subsidized. Public-partnership clinic in Los Palomos under Alcaldía + DSSA convenio.",
-    note: "The clinic is in the town, not behind a private gate. The community reaches it the same way residents do.",
+    title: "Schools — In the Town & On the Higher Levels",
+    tag: "Public Anchors · Lifting the Region",
+    desc: "Two complementary schools, neither exclusive. A public, traditional + vocational school in the town of Los Palomos — modernized with project capital under the Alianza ERA framework with the Gobernación and Secretaría de Educación, with SENA-aligned vocational tracks. And a ChoZen School (Green School × Ad Astra) — bilingual, regenerative-STEM, with reserved scholarship seats for local families and structural cross-enrollment with the public school.",
+    note: "Built with government, in the town. The community reaches them the same way residents do.",
     img: IMG.schoolhouse,
   },
 ];
 
-const SUSTAIN = [
-  { key: "Architecture", desc: "Antioqueño modern × Japanese-Colombian. Whitewashed walls, natural wood beams, terracotta tile, open-air corridors, handcrafted ceramic details. Bamboo (guadua angustifolia) under the structural lineage of Simón Vélez. Design DNA threaded with Kengo Kuma." },
-  { key: "Watershed", desc: "Fed by the Cerro Bravo watershed (2,645m) — designated by the regional environmental authority as the guarantor of water quality and quantity for human consumption in the area." },
-  { key: "Climate", desc: "Tropical-Andean: 16–24°C by day, cool nights, two wet seasons. The pronounced diurnal variation is exactly what defines specialty Antioquian coffee." },
-  { key: "Coffee", desc: "Specialty-coffee operation preserved under Pergamino stewardship. Export channel maintained. Premium offtake with 600+ Allied Producers across Antioquia, Cauca, and Nariño." },
-  { key: "Mobility", desc: "One hour to Medellín on the Pacífico 1 highway. 1.5 hours to José María Córdova International. Long-horizon: reactivation of the Antioquia railway segment that once stopped at Los Palomos." },
+// Tier / level structure
+const LEVELS = [
+  {
+    name: "Level 1 · The Gateway",
+    where: "Finca Entrance",
+    desc: "Coffee farm, equestrian stables, activities center, and the ChoZen Village — a walkable plaza with weekly farmers market, a Pergamino flagship coffee bar, farm-to-table cafés, and an artisan retail flagship. Open to Fredonia, Los Palomos, and the surrounding veredas.",
+    items: ["Coffee Farm", "Equestrian Stables", "Activities Center", "ChoZen Village Plaza", "Farmers Market"],
+  },
+  {
+    name: "Higher Levels · The Village",
+    where: "Residential Bands",
+    desc: "The residential village on the upper coffee-grove contours. Artist and maker live-work studios, family homes, entrepreneur and remote-worker residences, the luxury senior tier with longevity programming, and a small tier of coffee-grove villas at the top.",
+    items: ["Live-Work Studios", "Family Homes", "Remote-Work Residences", "Luxury Senior Tier", "Coffee-Grove Villas"],
+  },
+  {
+    name: "Off-Site · Los Palomos",
+    where: "The Town",
+    desc: "The community anchor — outside the Finca, in the town. The public primary-care clinic and the modernized public school sit here, alongside additional workforce and affordable housing and an affordable senior tier — so the community reaches every public anchor the same way residents do.",
+    items: ["Public Clinic", "Public School", "Workforce Housing", "Affordable Housing", "Affordable Senior Tier"],
+  },
 ];
 
+// Six resident cohorts (mixed-village thesis)
+const COHORTS = [
+  { name: "Coffee Entrepreneurs & Agri-Innovators", desc: "Young producers in the Pergamino smallholder network, next-generation farm management, food-system founders.", pct: "10–15%" },
+  { name: "Remote-Work & Digital-Economy Families", desc: "Commuting or tele-commuting to Medellín's Ruta N and El Poblado ecosystems. Anchored by Colombia's digital-nomad visa.", pct: "20–25%" },
+  { name: "Colombian & International Families", desc: "Drawn by the schools, the clinic, the outdoor lifestyle, and proximity to Medellín. The family-home heart of the village.", pct: "25–30%" },
+  { name: "Artisans, Makers & Craft Entrepreneurs", desc: "Live-work studios for ceramicists, weavers, bamboo craftsmen, carpenters, culinary artisans — Colombian and international.", pct: "10–15%" },
+  { name: "Retirees · Two Tiers", desc: "An affordable senior community in Los Palomos, and a luxury senior tier on the higher slopes with concierge clinical and longevity programming.", pct: "~15–20%" },
+  { name: "Workforce Housing", desc: "Hotel, clinic, school, farm, and academy staff live in the village they work in. Rental and lease-to-own — structural to the project.", pct: "20–25%" },
+];
+
+// The four partners — Pergamino + ChoZen + Click Clack + the family/FOC. NO GREG.
 const PARTNERS = [
   {
+    name: "Pergamino",
+    role: "Coffee Heritage · Farm Stewardship",
+    desc: "Preserves and elevates the specialty-coffee operation on Finca San Pascual. Maintains the export channel. Anchors the farm hotel, the flagship café in the village, and the project's relationship with the broader smallholder network across Antioquia, Cauca, and Nariño.",
+  },
+  {
+    name: "ChoZen",
+    role: "The Brand · The Framework",
+    desc: "The primary brand of the community — the residential village, the artisan neighborhood, the schools, the trails, the wellness sanctuary, the regenerative framework. A proven approach to intentional, regenerative placemaking.",
+  },
+  {
+    name: "Click Clack Hotel",
+    role: "Design Hospitality",
+    desc: "Operates the boutique hotel and the farm-to-table F&B platform — bringing brand, design sensibility, and operational infrastructure. One of two complementary hotel concepts on the property.",
+    logo: CLICK_CLACK_LOGO,
+  },
+  {
     name: "Echavarría Family",
-    role: "Land + Brand",
-    desc: "Finca Pascal contributed as equity — not as a sale — preserving multi-generational ownership of the upside. Pergamino specialty-coffee continuity. 600+ Allied Producer network. Multi-generational legacy in Fredonia.",
+    role: "Land · Legacy · Local Knowledge",
+    desc: "The landowner of Finca San Pascual. Multi-generational roots in Fredonia and Suroeste Antioquia. The trust, the land, the smallholder relationships, and the cultural anchor that makes the project credible — and lasting.",
   },
   {
     name: "Future of Cities",
     role: "Master Developer",
-    desc: "ChoZen brand and framework. 20-year placemaking track record — Wynwood, Magic City, PHX-JAX. Sponsor capital and the regenerative master-plan + execution. Tony Cho contributing the ChoZen IP and FOC's Regenerative Placemaking Standards.",
-  },
-  {
-    name: "Click Clack",
-    role: "Hospitality",
-    desc: "Hotel (~100 keys), wellness sanctuary, and farm-to-table F&B as one integrated platform under one design language. Brand, operating agreement, and Colombian family-office capital sourcing.",
-    logo: CLICK_CLACK_LOGO,
-  },
-  {
-    name: "Greg Carson",
-    role: "Capital Partner",
-    desc: "Anchor capital partner shaping deal structure, LP syndication, and long-term governance — joining FOC and Click Clack at the table for the next 90 days.",
+    desc: "Tony Cho's 20-year regenerative-placemaking platform — Wynwood, Magic City, PHX-JAX. Contributes the master plan, sponsor capital, and the FOC Regenerative Placemaking Standards.",
   },
   {
     name: "Government",
     role: "Public Anchors",
-    desc: "Alcaldía de Fredonia + Gobernación + Alianza ERA: clinic and public school in Los Palomos, co-built and co-funded — with Obras por Impuestos.",
+    desc: "Alcaldía de Fredonia + Gobernación de Antioquia + Alianza ERA: clinic and public school in Los Palomos, co-built and co-funded — including under Obras por Impuestos.",
   },
 ];
 
-const SITES = [
-  {
-    name: "Level 1 · The Gateway",
-    region: "Finca Entrance",
-    desc: "Coffee farm, equestrian stables, activities center, ChoZen Village with farmers market, Pergamino flagship coffee bar, and Click Clack farm-to-table F&B. Open to Fredonia, Los Palomos, and the surrounding veredas.",
-    tag: "The Arrival",
-  },
-  {
-    name: "Higher Levels · The Village",
-    region: "Residential Bands",
-    desc: "Artisan live-work studios, family and entrepreneur residences, villas, and a luxury senior tier with Blue Zones programming. ChoZen School, the wellness sanctuary, and the Makers Academy woven throughout.",
-    tag: "Residential",
-  },
-  {
-    name: "Off-Site · Los Palomos",
-    region: "The Town",
-    desc: "Public primary-care clinic under Alcaldía + DSSA convenio. Traditional + SENA-vocational public school under Alianza ERA. Workforce + affordable housing — and the affordable senior tier.",
-    tag: "Public Anchors",
-  },
+// Los Palomos community revitalization items
+const REVITALIZATION = [
+  { title: "A Public Primary-Care Clinic", desc: "Built with the Alcaldía de Fredonia and the Secretaría Seccional de Salud (DSSA), sited in the town — not behind a private gate. Serving the local community on the public regimens; project residents on private pay; same facility, blended populations." },
+  { title: "A Modernized Public School", desc: "K–11 traditional curriculum + SENA-aligned vocational tracks — agriculture, coffee science, carpentry, hospitality, basic health. Capital contributed under Alianza ERA and Obras por Impuestos to upgrade the existing campus." },
+  { title: "Workforce + Affordable Housing", desc: "A meaningful share of the project's workforce and affordable housing developed in the town itself — for clinic, school, hotel, and academy staff — alongside an affordable senior tier." },
+  { title: "Local Hiring · Local Economy", desc: "60% local hiring target across hotel, farm, hospitality, and academy. A community advisory board with real authority over public-realm design and scholarship allocation." },
+  { title: "Honoring the Demolished Church + Rail", desc: "Los Palomos was once a stop on the Antioquia railway. The historic church and the old rail station were demolished in recent years. The project's long-horizon vision proposes reactivating a segment of the historic alignment — paired with scheduled public transit Medellín ↔ Amagá ↔ Fredonia ↔ Los Palomos." },
 ];
 
-const STEPS = [
-  { n: "01", label: "Next 30 Days · Land Structure", desc: "Land-structure alignment with the Echavarría family on Finca Pascal — contributed as equity, not as a sale." },
-  { n: "02", label: "Next 30 Days · Hospitality", desc: "Click Clack engagement pathway and capital-sourcing role confirmed." },
-  { n: "03", label: "Next 30 Days · Security Posture", desc: "Memorandum co-signed with Gobernación, Alcaldía, and Policía Nacional before any public signal." },
-  { n: "04", label: "Next 90 Days · Feasibility & Term Sheets", desc: "Site, hydrology, geotechnical, and thermal surveys; master-plan concept (Vélez/Kuma lineage); financial model v1. Family term sheet, Click Clack LOI, clinic and school operator shortlists, SENA + Artesanías + Escuela Taller MOU pathway." },
-  { n: "05", label: "Day 120 · Go / No-Go to Structuring", desc: "If feasibility confirms water, land, security posture, family alignment, Click Clack commitment, and public-partnership openness — we proceed. Phase 1 is scoped tightly to limit sunk cost." },
+// What Pergamino + the family bring (specifically) — the legacy fact-strip
+const FAMILY_FACTS = [
+  { num: "1970s", lbl: "Echavarría Roots in Fredonia" },
+  { num: "111", lbl: "Hectares · Finca San Pascual" },
+  { num: "12+", lbl: "Pergamino Café Locations" },
+  { num: "4", lbl: "Continents · Specialty Exports" },
 ];
 
 // ═══════════════════════════════════════════════════════════════
@@ -233,11 +292,13 @@ function Nav() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
   const links = [
-    { href: "#vision", label: "Vision" },
-    { href: "#community", label: "Community" },
-    { href: "#regenerative", label: "Regenerative" },
-    { href: "#partnership", label: "Partnership" },
-    { href: "#sites", label: "Sites" },
+    { href: "#vision", label: "The Vision" },
+    { href: "#family", label: "Pergamino Family" },
+    { href: "#chozen", label: "ChoZen" },
+    { href: "#land", label: "The Land" },
+    { href: "#palomos", label: "Los Palomos" },
+    { href: "#components", label: "Components" },
+    { href: "#partners", label: "Partners" },
     { href: "#contact", label: "Connect" },
   ];
   return (
@@ -281,24 +342,6 @@ function TextReveal({ children, className = "", delay = 0 }) {
   );
 }
 
-function VideoBreak({ src, height = "85vh", subtitle, title, caption, overlay = 0.4, poster }) {
-  return (
-    <div className="colVideoBreak" style={{ height }}>
-      <video className="colVideoBreakVideo" autoPlay muted loop playsInline poster={poster}>
-        <source src={src} type="video/mp4" />
-      </video>
-      <div className="colVideoBreakOverlay" style={{ background: `linear-gradient(180deg, rgba(26,22,16,${overlay * 0.5}) 0%, rgba(26,22,16,${overlay}) 60%, rgba(26,22,16,${overlay + 0.15}) 100%)` }} />
-      {(title || subtitle || caption) && (
-        <div className="colVideoBreakContent">
-          {subtitle && <p className="colVideoBreakSub">{subtitle}</p>}
-          {title && <h2 className="colVideoBreakTitle">{title}</h2>}
-          {caption && <p className="colVideoBreakCaption">{caption}</p>}
-        </div>
-      )}
-    </div>
-  );
-}
-
 function ImageBreak({ img, height = "70vh", subtitle, title, caption, overlay = 0.5, speed = 0.2, credit }) {
   const { ref, offset } = useParallax(speed);
   return (
@@ -324,7 +367,25 @@ function ImageBreak({ img, height = "70vh", subtitle, title, caption, overlay = 
   );
 }
 
-function CommunityCard({ item, index }) {
+function VideoBreak({ src, height = "85vh", subtitle, title, caption, overlay = 0.4, poster }) {
+  return (
+    <div className="colVideoBreak" style={{ height }}>
+      <video className="colVideoBreakVideo" autoPlay muted loop playsInline poster={poster}>
+        <source src={src} type="video/mp4" />
+      </video>
+      <div className="colVideoBreakOverlay" style={{ background: `linear-gradient(180deg, rgba(26,22,16,${overlay * 0.5}) 0%, rgba(26,22,16,${overlay}) 60%, rgba(26,22,16,${overlay + 0.15}) 100%)` }} />
+      {(title || subtitle || caption) && (
+        <div className="colVideoBreakContent">
+          {subtitle && <p className="colVideoBreakSub">{subtitle}</p>}
+          {title && <h2 className="colVideoBreakTitle">{title}</h2>}
+          {caption && <p className="colVideoBreakCaption">{caption}</p>}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ComponentCard({ item, index }) {
   const reversed = index % 2 === 1;
   return (
     <FadeIn className={`colCommItem ${reversed ? "colCommReversed" : ""}`}>
@@ -355,7 +416,7 @@ function ContactForm() {
     <div className="colFormDone">
       <span className="colFormDoneMark">◇</span>
       <h3>Gracias</h3>
-      <p>We&apos;ll be in touch to schedule a site visit and next steps.</p>
+      <p>We&apos;ll be in touch.</p>
     </div>
   );
   return (
@@ -371,23 +432,22 @@ function ContactForm() {
         </label>
       </div>
       <label className="colFormFull">
-        <span>I&apos;m interested as a</span>
+        <span>I&apos;m connecting as a</span>
         <select value={form.role} onChange={e => setForm({...form, role: e.target.value})}>
           <option value="">Select one…</option>
-          <option>Landowner / Family Office</option>
-          <option>Investor / Capital Partner</option>
+          <option>Echavarría / Pergamino Family</option>
+          <option>Click Clack</option>
           <option>Future Resident</option>
-          <option>Hospitality / Operational Partner</option>
+          <option>Public-Sector / Government</option>
           <option>Advisor / Community</option>
-          <option>Media</option>
+          <option>Other</option>
         </select>
       </label>
       <label className="colFormFull">
         <span>A note (optional)</span>
-        <textarea rows={4} placeholder="Anything you'd like us to know before we connect." value={form.message} onChange={e => setForm({...form, message: e.target.value})} />
+        <textarea rows={4} placeholder="Anything you'd like us to know." value={form.message} onChange={e => setForm({...form, message: e.target.value})} />
       </label>
-      <button className="colFormBtn" onClick={() => setDone(true)}>Request a Conversation →</button>
-      <p className="colFormSmall">Partnership inquiries only. We&apos;ll respond within 3 business days.</p>
+      <button className="colFormBtn" onClick={() => setDone(true)}>Begin the Conversation →</button>
     </div>
   );
 }
@@ -411,15 +471,21 @@ export default function Home() {
           <img src={STAMP_LOGO} alt="" className="colHeroStamp" />
           <p className="colHeroEyebrow">Confidential · Partnership Discussion · April 2026</p>
           <h1 className="colHeroTitle">
-            <span>Chozen</span>
+            <span>ChoZen</span>
             <span className="colHeroTitleItalic">Colombia</span>
           </h1>
           <div className="colHeroLine" />
           <p className="colHeroSub">A Regenerative Mountain Village in the Colombian Highlands</p>
-          <p className="colHeroLocation">Finca Pascal · Fredonia, Antioquia</p>
-          <div className="colHeroCoBrand">
-            <span className="colHeroCoBrandLabel">In partnership with</span>
-            <img src={CLICK_CLACK_LOGO} alt="Click Clack" className="colHeroCoBrandLogo" />
+          <p className="colHeroLocation">Finca San Pascual · Fredonia, Antioquia</p>
+          <div className="colHeroCoBrand" style={{ flexDirection: "column", gap: "0.65rem" }}>
+            <span className="colHeroCoBrandLabel">A Partnership Between</span>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1.5rem", flexWrap: "wrap", marginTop: "0.5rem" }}>
+              <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontStyle: "italic", color: "#F5EFE2", letterSpacing: "0.04em" }}>Pergamino</span>
+              <span style={{ color: "rgba(245,239,226,0.5)" }}>·</span>
+              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "1rem", color: "#F5EFE2", letterSpacing: "0.18em", fontWeight: 500 }}>CHOZEN</span>
+              <span style={{ color: "rgba(245,239,226,0.5)" }}>·</span>
+              <img src={CLICK_CLACK_LOGO} alt="Click Clack" className="colHeroCoBrandLogo" />
+            </div>
           </div>
         </div>
         <a href="#vision" className="colHeroScroll">
@@ -432,7 +498,7 @@ export default function Home() {
       <section className="colManifesto" id="vision">
         <div className="colWrap">
           <FadeIn>
-            <p className="colEyebrow">The Vision</p>
+            <p className="colEyebrow">The Invitation</p>
           </FadeIn>
           <TextReveal className="colManifestoText">
             Set within the mountains of Antioquia, this is not a real estate development but a <em>living community</em> — built around wellbeing, regenerative agriculture, deep connection to the land and culture of Colombia, and the people who make it what it is.
@@ -440,61 +506,201 @@ export default function Home() {
           <FadeIn delay={0.2}>
             <div className="colManifestoBody">
               <p><strong>Not a resort. Not a gated retirement enclave. Not a branded-residence project.</strong></p>
-              <p>The site sits in the coffee-growing band of southwestern Antioquia at 1,400–1,800 meters, just below the Cerro Bravo watershed (2,645m) — a forested reserve that, by the regional environmental authority's own designation, guarantees the quality and quantity of water for human consumption in the area. One hour to Medellín on the Pacífico 1 highway. An hour and a half to José María Córdova International.</p>
-              <p>Six resident cohorts woven together — coffee entrepreneurs and agri-innovators, remote-work families commuting to Medellín's Ruta N ecosystem, Colombian and international families, artisans and makers, retirees in two distinct tiers (capped at ~20%), and a small tier of luxury villa buyers at the top. Workforce housing is structural, not incidental — 60% local hiring, with a community advisory board holding real authority over public-realm design and scholarship allocation.</p>
+              <p>This is a multigenerational partnership — celebrating the culture, the coffee, the craft, and the vibrancy of Colombia. It begins by honoring a family that has shaped specialty coffee in Antioquia for half a century — and the small farmers, the local town, and the land that have made that legacy possible.</p>
+              <p>Each partner contributes what only they can. The family stays a co-owner of the upside. And what we build at Finca San Pascual is in service of the community that surrounds it.</p>
             </div>
           </FadeIn>
         </div>
       </section>
 
-      {/* ═══ MEDELLÍN IMAGE BREAK ═══ */}
-      <ImageBreak
-        img={MEDELLIN_HERO.img}
-        credit={MEDELLIN_HERO.credit}
-        height="75vh"
-        subtitle="Medellín · Antioquia"
-        title={<>The city of<br/><em>eternal spring.</em></>}
-        caption="65–75°F year-round. Surrounded by green mountains. The gateway to ChoZen Colombia."
-        overlay={0.45}
-        speed={0.25}
-      />
-
-      {/* ═══ WHY MEDELLÍN ═══ */}
-      <section className="colHowItWorks" id="medellin">
+      {/* ═══ HONORING THE FAMILY · PERGAMINO ═══ */}
+      <section className="colSec colSecCream" id="family">
         <div className="colWrap">
-          <div className="colHowGrid">
-            <div>
-              <FadeIn><p className="colEyebrow">Why Finca Pascal · Why Now</p></FadeIn>
-              <FadeIn delay={0.1}>
-                <h2 className="colHowTitle">A four-way<br/><em>convergence.</em></h2>
+          <div className="colSecHead">
+            <FadeIn><p className="colEyebrow">Honoring the Echavarría Family · Pergamino</p></FadeIn>
+            <FadeIn delay={0.1}>
+              <h2 className="colSecTitle">A family rooted in Fredonia.<br/><em>A coffee legacy in motion.</em></h2>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <p className="colSecDesc">Finca San Pascual is the original family farm — and the foundation of everything that has grown from it. This project begins by honoring that land, that work, and the smallholder community Pergamino supports across Antioquia, Cauca, and Nariño.</p>
+            </FadeIn>
+          </div>
+
+          {/* Old farmhouse hero photo */}
+          <FadeIn delay={0.1}>
+            <figure style={{ margin: "3rem 0 2rem", borderRadius: "4px", overflow: "hidden" }}>
+              <img src={PHOTO.oldFarmhouse} alt="Original brick farmhouse at Finca San Pascual" style={{ width: "100%", height: "62vh", objectFit: "cover", display: "block" }} />
+              <figcaption style={{ marginTop: "0.85rem", fontSize: "0.78rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--moss, #4A5D23)", textAlign: "center" }}>The original farmhouse · Finca San Pascual</figcaption>
+            </figure>
+          </FadeIn>
+
+          {/* Legacy timeline */}
+          <div className="colCommList" style={{ marginTop: "3rem" }}>
+            {FAMILY_LEGACY.map((stage, i) => (
+              <FadeIn key={i} delay={i * 0.08}>
+                <div style={{ display: "grid", gridTemplateColumns: "minmax(140px, 220px) 1fr", gap: "2rem", padding: "2rem 0", borderTop: "1px solid rgba(0,0,0,0.08)" }}>
+                  <div>
+                    <p style={{ fontSize: "0.72rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--moss, #4A5D23)", marginBottom: "0.5rem" }}>{stage.year}</p>
+                    <h4 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.6rem", fontWeight: 500, lineHeight: 1.2, fontStyle: "italic" }}>{stage.title}</h4>
+                  </div>
+                  <p style={{ fontSize: "1rem", lineHeight: 1.7, color: "rgba(26,22,16,0.78)" }}>{stage.body}</p>
+                </div>
               </FadeIn>
+            ))}
+          </div>
+
+          {/* Family / Pergamino fact strip */}
+          <FadeIn delay={0.2}>
+            <div style={{ marginTop: "4rem", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "1.5rem", borderTop: "1px solid rgba(0,0,0,0.08)", paddingTop: "2.5rem" }}>
+              {FAMILY_FACTS.map((s, i) => (
+                <div key={i} style={{ textAlign: "center" }}>
+                  <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2.6rem", fontWeight: 500, color: "var(--moss, #4A5D23)", lineHeight: 1 }}>{s.num}</div>
+                  <div style={{ fontSize: "0.72rem", letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(26,22,16,0.6)", marginTop: "0.65rem" }}>{s.lbl}</div>
+                </div>
+              ))}
             </div>
-            <div className="colHowBody">
-              <FadeIn delay={0.15}>
-                <p>A rare site — 111 hectares of world-class coffee terroir, ~1 hour from Medellín, fed by the Cerro Bravo watershed, in one of the safer, quieter municipalities of the coffee belt.</p>
-                <p>Echavarría family land + Pergamino brand gravity + Click Clack hospitality + FOC placemaking — a combination that does not exist anywhere else in Antioquia. The oriente has saturated; the suroeste corridor is the next edge. Coffee&apos;s generational moment: young producers in the Pergamino network need anchor institutions to make staying a rational life decision.</p>
-                <p><em>Ráquira, Mompox, Salento — Antioquia has no equivalent craft destination. ChoZen Colombia is positioned to become the first.</em></p>
-              </FadeIn>
-            </div>
+          </FadeIn>
+
+          {/* Smallholder photo + caption */}
+          <FadeIn delay={0.15}>
+            <figure style={{ margin: "4rem 0 0", borderRadius: "4px", overflow: "hidden" }}>
+              <img src={PHOTO.coffeePickers} alt="Smallholder coffee pickers in the Pergamino network" style={{ width: "100%", height: "70vh", objectFit: "cover", display: "block" }} />
+              <figcaption style={{ marginTop: "0.85rem", fontSize: "0.85rem", lineHeight: 1.6, color: "rgba(26,22,16,0.78)", textAlign: "center", maxWidth: "640px", margin: "0.85rem auto 0" }}>The cultural offering of this project is built on supporting these growers — the small farmers of Antioquia, Cauca, and Nariño that the Pergamino network walks alongside.</figcaption>
+            </figure>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ═══ CHOZEN BACKGROUND ═══ */}
+      <section className="colSec colSecDark" id="chozen">
+        <div className="colWrap">
+          <div className="colSecHead">
+            <FadeIn><p className="colEyebrowGold">A Brief Background</p></FadeIn>
+            <FadeIn delay={0.1}>
+              <h2 className="colSecTitleLight">What is ChoZen.<br/><em>Why Colombia.</em></h2>
+            </FadeIn>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "2.5rem", marginTop: "3rem" }}>
+            <FadeIn delay={0.1}>
+              <div>
+                <p style={{ fontSize: "0.72rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--gold, #C8A664)", marginBottom: "0.7rem" }}>The Brand</p>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.7rem", color: "var(--cream, #F5EFE2)", marginBottom: "1rem", fontStyle: "italic" }}>A regenerative living framework.</h3>
+                <p style={{ color: "rgba(245,239,226,0.8)", lineHeight: 1.7 }}>ChoZen is a regenerative-living brand and framework — bringing together wellness, regenerative agriculture, intentional community, and biophilic design. Founded by Tony Cho and Ximena Cho, it has grown over more than a decade as a community of changemakers, indigenous leaders, world-class wellness practitioners, and visionaries.</p>
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.18}>
+              <div>
+                <p style={{ fontSize: "0.72rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--gold, #C8A664)", marginBottom: "0.7rem" }}>The Founders</p>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.7rem", color: "var(--cream, #F5EFE2)", marginBottom: "1rem", fontStyle: "italic" }}>Tony &amp; Ximena Cho.</h3>
+                <p style={{ color: "rgba(245,239,226,0.8)", lineHeight: 1.7 }}>Tony Cho is a regenerative placemaker with a 20-year track record — founder of Future of Cities, original placemaker of Wynwood, and founder of the Phoenix Arts &amp; Innovation District. Ximena Cho is a Colombian-born co-founder, philanthropist, and environmental advocate. Their partnership and her Colombian heritage are why this project belongs here.</p>
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.26}>
+              <div>
+                <p style={{ fontSize: "0.72rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--gold, #C8A664)", marginBottom: "0.7rem" }}>Why Colombia</p>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.7rem", color: "var(--cream, #F5EFE2)", marginBottom: "1rem", fontStyle: "italic" }}>Where the framework belongs.</h3>
+                <p style={{ color: "rgba(245,239,226,0.8)", lineHeight: 1.7 }}>Colombia has the land, the culture, the coffee, and the people. The mixed-village model — local farmers and international residents as neighbors, not amenities — is most natural here. ChoZen Colombia is the most purposeful realization of the framework to date.</p>
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* ═══ MEDELLÍN GALLERY ═══ */}
-      <section className="colGallerySec">
+      {/* ═══ THE LAND · FINCA SAN PASCUAL ═══ */}
+      <ImageBreak
+        img={PHOTO.cerroBravoView}
+        height="78vh"
+        subtitle="The Land"
+        title={<>Finca San Pascual.<br/><em>111 hectares of coffee terroir.</em></>}
+        caption="At 1,400–1,800 meters, just below the Cerro Bravo watershed (2,645m) — one of the safer, quieter corners of the coffee belt."
+        overlay={0.45}
+      />
+
+      {/* ═══ THE LAND · DETAIL ═══ */}
+      <section className="colSec" id="land">
         <div className="colWrap">
-          <div className="colGallery">
-            {MEDELLIN_GALLERY.map((g, i) => (
-              <FadeIn key={i} delay={i * 0.1}>
-                <figure className="colGalleryItem">
-                  <div className="colGalleryImg">
-                    <img src={g.img} alt={g.caption} loading="lazy" />
+          <div className="colSecHead">
+            <FadeIn><p className="colEyebrow">Finca San Pascual</p></FadeIn>
+            <FadeIn delay={0.1}>
+              <h2 className="colSecTitle">The setting.<br/><em>The watershed. The microclimate. The coffee.</em></h2>
+            </FadeIn>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "2rem", marginTop: "3rem" }}>
+            <FadeIn delay={0.05}>
+              <div>
+                <h4 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", marginBottom: "0.7rem", fontStyle: "italic" }}>The Watershed</h4>
+                <p style={{ lineHeight: 1.7 }}>The site sits below the Cerro Bravo forested reserve — designated by the regional environmental authority as the guarantor of water quality and quantity for human consumption in the area.</p>
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.12}>
+              <div>
+                <h4 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", marginBottom: "0.7rem", fontStyle: "italic" }}>The Climate</h4>
+                <p style={{ lineHeight: 1.7 }}>Tropical-Andean: 16–24°C by day, cool nights, two wet seasons. The pronounced diurnal variation is what defines specialty Antioquian coffee.</p>
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.19}>
+              <div>
+                <h4 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", marginBottom: "0.7rem", fontStyle: "italic" }}>The Coffee</h4>
+                <p style={{ lineHeight: 1.7 }}>The specialty-coffee operation preserved and elevated under Pergamino stewardship — the export channel maintained, the farm at the heart of the village.</p>
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.26}>
+              <div>
+                <h4 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", marginBottom: "0.7rem", fontStyle: "italic" }}>A Safe Corner</h4>
+                <p style={{ lineHeight: 1.7 }}>Fredonia is one of the quietest municipalities in Suroeste Antioquia — protected under the national Plan Cosecha Cafetera, with crime rates below the national average.</p>
+              </div>
+            </FadeIn>
+          </div>
+
+          {/* On-the-ground photo grid */}
+          <FadeIn delay={0.15}>
+            <div style={{ marginTop: "3.5rem", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1rem" }}>
+              {[PHOTO.coffeeRows, PHOTO.coffeeProcessing, PHOTO.treeLandscape, PHOTO.equestrian].map((src, i) => (
+                <div key={i} style={{ aspectRatio: "3/4", overflow: "hidden", borderRadius: "3px" }}>
+                  <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                </div>
+              ))}
+            </div>
+            <p style={{ marginTop: "1rem", fontSize: "0.74rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "rgba(26,22,16,0.55)", textAlign: "center" }}>On the ground · Finca San Pascual</p>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ═══ MEDELLÍN · ONE SLIM SECTION ═══ */}
+      <ImageBreak
+        img={MEDELLIN_HERO.img}
+        credit={MEDELLIN_HERO.credit}
+        height="60vh"
+        subtitle="One Hour Away"
+        title={<>Medellín. <em>The gateway.</em></>}
+        caption="~1 hour from the city via the Pacífico 1 highway. ~1.5 hours to José María Córdova International."
+        overlay={0.5}
+        speed={0.25}
+      />
+
+      {/* ═══ LOS PALOMOS · COMMUNITY REVITALIZATION ═══ */}
+      <section className="colSec colSecCream" id="palomos">
+        <div className="colWrap">
+          <div className="colSecHead">
+            <FadeIn><p className="colEyebrow">Los Palomos · The Community Spine</p></FadeIn>
+            <FadeIn delay={0.1}>
+              <h2 className="colSecTitle">Built with the town.<br/><em>Not behind a private gate.</em></h2>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <p className="colSecDesc">Los Palomos is a small village with a century-long coal-mining history and a proud rail heritage. The historic church and the old rail station were demolished in recent years. The village deserves investment — and the project is built so the community reaches every public anchor the same way residents do: by walking into town.</p>
+            </FadeIn>
+          </div>
+
+          <div className="colCommList" style={{ marginTop: "3rem" }}>
+            {REVITALIZATION.map((r, i) => (
+              <FadeIn key={i} delay={i * 0.08}>
+                <div style={{ display: "grid", gridTemplateColumns: "60px 1fr", gap: "1.6rem", padding: "2rem 0", borderTop: "1px solid rgba(0,0,0,0.08)" }}>
+                  <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem", color: "var(--moss, #4A5D23)", fontWeight: 500, lineHeight: 1 }}>0{i + 1}</div>
+                  <div>
+                    <h4 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.55rem", marginBottom: "0.7rem", fontStyle: "italic" }}>{r.title}</h4>
+                    <p style={{ lineHeight: 1.7, color: "rgba(26,22,16,0.78)" }}>{r.desc}</p>
                   </div>
-                  <figcaption>
-                    <span className="colGalleryCap">{g.caption}</span>
-                    <span className="colGallerySub">{g.sub}</span>
-                  </figcaption>
-                </figure>
+                </div>
               </FadeIn>
             ))}
           </div>
@@ -504,95 +710,96 @@ export default function Home() {
       {/* ═══ ARCHITECTURE VIDEO ═══ */}
       <VideoBreak
         src={VIDEO.corridorDolly}
-        height="90vh"
-        subtitle="Modern Colombian Architecture"
-        title={<>Whitewashed walls.<br/>Open-air corridors.<br/>Terracotta in the afternoon sun.</>}
-        caption="Inspired by the traditional fincas of Antioquia — set against one of the most extraordinary landscapes on earth."
+        height="80vh"
+        subtitle="Architecture as Lineage"
+        title={<>Antioqueño modern.<br/><em>Japanese-Colombian sensibility.</em></>}
+        caption="Whitewashed walls. Bamboo (Simón Vélez lineage). Rammed earth. Living roofs. The Kengo Kuma DNA already present in Click Clack's existing properties."
         poster={IMG.finca}
       />
 
-      {/* ═══ THE COMMUNITY ═══ */}
-      <section className="colSec" id="community">
+      {/* ═══ SIX COMPONENTS ═══ */}
+      <section className="colSec" id="components">
         <div className="colWrap">
           <div className="colSecHead">
-            <FadeIn><p className="colEyebrow">The Programming · Six Interconnected Components</p></FadeIn>
+            <FadeIn><p className="colEyebrow">The Programming</p></FadeIn>
             <FadeIn delay={0.1}>
-              <h2 className="colSecTitle">Six components,<br/><em>structured so each reinforces the others.</em></h2>
-            </FadeIn>
-            <FadeIn delay={0.2}>
-              <p className="colSecDesc">The Village across three bands — Level 1 Gateway, Higher Levels Village, and the off-site Town of Los Palomos. Together they form a living community, not a demographic monoculture.</p>
+              <h2 className="colSecTitle">Six interconnected components.<br/><em>Each reinforces the others.</em></h2>
             </FadeIn>
           </div>
           <div className="colCommList">
-            {COMMUNITY.map((c, i) => <CommunityCard key={i} item={c} index={i} />)}
+            {COMPONENTS.map((c, i) => <ComponentCard key={i} item={c} index={i} />)}
           </div>
         </div>
       </section>
 
-      {/* ═══ WOVEN THROUGHOUT ═══ */}
-      <section className="colWoven">
-        <div className="colWrap">
-          <FadeIn>
-            <p className="colEyebrowLight">By the Numbers</p>
-            <h2 className="colWovenTitle">111 hectares. ~150 residences. ~100 keys.<br/>600+ Pergamino producers. <em>1 hour to Medellín.</em></h2>
-            <p className="colWovenText">Locals and internationals as neighbors — not amenities. Six resident cohorts woven together. 60% local hiring. A community advisory board with real authority over public-realm design and scholarship allocation.</p>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ═══ LATERAL VIDEO BREAK ═══ */}
-      <VideoBreak
-        src={VIDEO.lateralTrack}
-        height="75vh"
-        subtitle=""
-        overlay={0.25}
-        poster={IMG.villageAerial}
-      />
-
-      {/* ═══ SELF-SUFFICIENT BY DESIGN ═══ */}
-      <section className="colSec colSecDark" id="regenerative">
+      {/* ═══ THE TIERS / LEVELS ═══ */}
+      <section className="colSec colSecCream">
         <div className="colWrap">
           <div className="colSecHead">
-            <FadeIn><p className="colEyebrowGold">Architecture · Watershed · Coffee · Climate · Mobility</p></FadeIn>
+            <FadeIn><p className="colEyebrow">The Village · Across Three Bands</p></FadeIn>
             <FadeIn delay={0.1}>
-              <h2 className="colSecTitleLight">Architecture as lineage —<br/><em>infrastructure as place.</em></h2>
+              <h2 className="colSecTitle">Level 1. The Village.<br/><em>The Town.</em></h2>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <p className="colSecDesc">The Finca entrance, the residential bands above, and the off-site town of Los Palomos — woven together as one community.</p>
             </FadeIn>
           </div>
-          <div className="colSustainImgWrap">
-            <img src={IMG.energy} alt="Sustainable energy infrastructure" className="colSustainImg" />
-            <div className="colSustainImgOverlay" />
-          </div>
-          <div className="colSustainGrid">
-            {SUSTAIN.map((s, i) => (
-              <FadeIn key={i} delay={i * 0.08}>
-                <div className="colSustainCard">
-                  <span className="colSustainNum">0{i + 1}</span>
-                  <h3>{s.key}</h3>
-                  <p>{s.desc}</p>
+          <div className="colSiteGrid" style={{ marginTop: "3rem" }}>
+            {LEVELS.map((s, i) => (
+              <FadeIn key={i} delay={i * 0.1}>
+                <div className="colSiteCard">
+                  <p className="colSiteTag">{s.where}</p>
+                  <h3 className="colSiteName">{s.name}</h3>
+                  <div className="colSiteDivider" />
+                  <p className="colSiteDesc">{s.desc}</p>
+                  <div style={{ marginTop: "1.2rem", display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
+                    {s.items.map(t => (
+                      <span key={t} style={{ fontSize: "0.66rem", letterSpacing: "0.14em", textTransform: "uppercase", padding: "0.4rem 0.7rem", border: "1px solid rgba(0,0,0,0.12)", borderRadius: "999px", color: "rgba(26,22,16,0.7)" }}>{t}</span>
+                    ))}
+                  </div>
                 </div>
               </FadeIn>
             ))}
           </div>
+
+          {/* Cohort grid — the mixed-village thesis */}
+          <FadeIn delay={0.2}>
+            <h3 className="subHead" style={{ marginTop: "5rem", textAlign: "center", fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem", fontStyle: "italic" }}>Six Resident Cohorts · One Village</h3>
+            <p style={{ textAlign: "center", maxWidth: "680px", margin: "0.8rem auto 2.5rem", lineHeight: 1.7, color: "rgba(26,22,16,0.7)" }}>The age, occupational, and cultural rhythm of a healthy Antioquian town — not a demographic monoculture.</p>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.5rem" }}>
+              {COHORTS.map((c, i) => (
+                <div key={i} style={{ padding: "1.6rem", border: "1px solid rgba(0,0,0,0.08)", borderRadius: "3px", background: "rgba(255,255,255,0.5)" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "0.7rem" }}>
+                    <h4 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.2rem", fontWeight: 600, lineHeight: 1.25 }}>{c.name}</h4>
+                    <span style={{ fontSize: "0.72rem", letterSpacing: "0.14em", color: "var(--moss, #4A5D23)", whiteSpace: "nowrap", marginLeft: "0.6rem" }}>{c.pct}</span>
+                  </div>
+                  <p style={{ fontSize: "0.92rem", lineHeight: 1.6, color: "rgba(26,22,16,0.72)" }}>{c.desc}</p>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* ═══ WELLNESS VIDEO ═══ */}
       <VideoBreak
         src={VIDEO.bambooPushIn}
-        height="85vh"
-        subtitle="Retreat & Wellness"
-        title={<>The spiritual heart.</>}
-        caption="Bamboo pavilions. Natural stone pools. Steam rising in the highland air."
+        height="78vh"
+        subtitle="The Sanctuary"
+        title={<>Bamboo pavilions. <em>Stone pools. Steam rising in the highland air.</em></>}
         poster={IMG.wellnessRetreat}
       />
 
       {/* ═══ THE PARTNERSHIP ═══ */}
-      <section className="colSec" id="partnership">
+      <section className="colSec" id="partners">
         <div className="colWrap">
           <div className="colSecHead">
-            <FadeIn><p className="colEyebrow">The Partnership We&rsquo;re Proposing</p></FadeIn>
+            <FadeIn><p className="colEyebrow">The Partnership</p></FadeIn>
             <FadeIn delay={0.1}>
-              <h2 className="colSecTitle">Five partners.<br/><em>A joint venture, not a sale.</em></h2>
+              <h2 className="colSecTitle">Pergamino. ChoZen. Click Clack.<br/><em>The family. The future of cities. The town.</em></h2>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <p className="colSecDesc">Each partner contributes what only they can. The family stays a co-owner of the community&rsquo;s upside — a multigenerational partnership celebrating the culture and vibrancy of Colombia.</p>
             </FadeIn>
           </div>
           <div className="colPartnerGrid">
@@ -616,115 +823,64 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══ HOW IT WORKS ═══ */}
+      {/* ═══ DEAL STRUCTURE — LIGHT TOUCH ═══ */}
       <section className="colHowItWorks">
         <div className="colWrap">
           <div className="colHowGrid">
             <div>
-              <FadeIn><p className="colEyebrow">Recommended Structure</p></FadeIn>
+              <FadeIn><p className="colEyebrow">Structure · Light Touch</p></FadeIn>
               <FadeIn delay={0.1}>
-                <h2 className="colHowTitle">A Colombian S.A.S.<br/><em>joint venture.</em></h2>
+                <h2 className="colHowTitle">A multigenerational<br/><em>partnership.</em></h2>
               </FadeIn>
             </div>
             <div className="colHowBody">
               <FadeIn delay={0.15}>
-                <p>The Echavarría family contributes Finca Pascal at appraised value as equity — not as a sale — preserving multi-generational ownership of the upside. FOC contributes placemaking IP, sponsor capital, and the ChoZen brand. Click Clack contributes brand, operating agreement, and capital sourcing. Anchor capital fills the balance. Pergamino retains the coffee operation and export channel.</p>
-                <p>Each partner contributes what only they can — and the family stays a co-owner of the community&rsquo;s upside. The real question is not whether this can be built — it is whether the partnership can be built.</p>
+                <p>This is an <em>introduction</em>, not a negotiation. The structure, when we get there, is simple: the family contributes Finca San Pascual at an agreed value as equity — preserving multigenerational ownership and upside. ChoZen and Future of Cities contribute the brand, the framework, and the master-plan IP. Click Clack contributes the boutique-hotel brand and operations. Pergamino retains its IP and its brand on the farm.</p>
+                <p>This is not just a business deal. It is a multigenerational partnership — celebrating the culture and vibrancy of Colombia, and built around honoring the family, the small farmers, and the town.</p>
               </FadeIn>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ═══ THE SITES ═══ */}
-      <section className="colSec colSecCream" id="sites">
+      {/* ═══ NEXT 90 DAYS — SIMPLE ═══ */}
+      <section className="colSec colSecCream">
         <div className="colWrap">
           <div className="colSecHead">
-            <FadeIn><p className="colEyebrow">The Village · Across Three Bands</p></FadeIn>
+            <FadeIn><p className="colEyebrow">The Next 90 Days</p></FadeIn>
             <FadeIn delay={0.1}>
-              <h2 className="colSecTitle">The Gateway. The Village.<br/><em>The Town.</em></h2>
+              <h2 className="colSecTitle">A 90-day feasibility<br/><em>and term sheet.</em></h2>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <p className="colSecDesc">The Finca entrance, the residential bands above, and the off-site town of Los Palomos — woven together as one community.</p>
+              <p className="colSecDesc" style={{ maxWidth: "640px", margin: "1.5rem auto 0" }}>If the conversation continues — site walks, hydrology and geotechnical surveys, master-plan concept, and a definitive term sheet. No public signal until we&rsquo;re ready, together.</p>
             </FadeIn>
-          </div>
-          <div className="colSiteGrid">
-            {SITES.map((s, i) => (
-              <FadeIn key={i} delay={i * 0.1}>
-                <div className="colSiteCard">
-                  <p className="colSiteTag">{s.tag}</p>
-                  <h3 className="colSiteName">{s.name}</h3>
-                  <p className="colSiteRegion">{s.region}</p>
-                  <div className="colSiteDivider" />
-                  <p className="colSiteDesc">{s.desc}</p>
-                </div>
-              </FadeIn>
-            ))}
           </div>
         </div>
       </section>
 
-      {/* ═══ NEXT STEPS ═══ */}
-      <section className="colSec">
-        <div className="colWrap">
-          <div className="colSecHead">
-            <FadeIn><p className="colEyebrow">The Path Forward</p></FadeIn>
-            <FadeIn delay={0.1}>
-              <h2 className="colSecTitle">30 days. 90 days.<br/><em>A go/no-go on day 120.</em></h2>
-            </FadeIn>
-          </div>
-          <div className="colStepList">
-            {STEPS.map((s, i) => (
-              <FadeIn key={i} delay={i * 0.06}>
-                <div className="colStep">
-                  <span className="colStepNum">{s.n}</span>
-                  <div className="colStepBody">
-                    <h3>{s.label}</h3>
-                    <p>{s.desc}</p>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ TONY CHO QUOTE (over night video) ═══ */}
-      <section className="colQuoteSection">
-        <video className="colQuoteVideo" autoPlay muted loop playsInline poster={IMG.villageNight}>
-          <source src={VIDEO.nightDrift} type="video/mp4" />
-        </video>
-        <div className="colQuoteOverlay" />
-        <div className="colQuoteContent">
-          <FadeIn>
-            <p className="colQuoteMark">❝</p>
-            <blockquote className="colQuoteText">
-              Finca Pascal has everything a ChoZen community needs — the land, the watershed, the coffee, the people, and a family willing to stay co-owners of the upside. What has been missing is the framework, the capital, and the operating partner that can hold it all together.
-            </blockquote>
-            <blockquote className="colQuoteText colQuoteText2">
-              The real question is not whether this can be built — it is whether the <em>partnership</em> can be built.
-            </blockquote>
-            <div className="colQuoteAttribution">
-              <p className="colQuoteName">Tony Cho</p>
-              <p className="colQuoteTitle">Founder · Future of Cities · ChoZen · Cho Ventures</p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      {/* ═══ SUNSET QUOTE OVER MOUNTAIN ═══ */}
+      <ImageBreak
+        img={PHOTO.sunsetMountain}
+        height="78vh"
+        subtitle="The Real Question"
+        title={<><em>It is whether the partnership<br/>can be built.</em></>}
+        caption="The land is here. The family is here. The brand is here. The framework is here."
+        overlay={0.55}
+      />
 
       {/* ═══ CONTACT ═══ */}
       <section className="colContact" id="contact">
         <div className="colWrap">
-          <div style={{textAlign:"center",maxWidth:"720px",margin:"0 auto"}}>
-            <FadeIn><p className="colEyebrow">What We&rsquo;re Asking from This Room</p></FadeIn>
+          <div style={{ textAlign: "center", maxWidth: "720px", margin: "0 auto" }}>
+            <FadeIn><p className="colEyebrow">Connect</p></FadeIn>
             <FadeIn delay={0.1}>
               <h2 className="colContactTitle">Begin the<br/><em>conversation.</em></h2>
             </FadeIn>
             <FadeIn delay={0.2}>
               <p className="colContactBody">
-                From the Echavarría family: alignment in principle on Finca Pascal as the advancing site, on land contributed as equity, and on Pergamino as the coffee anchor — opening the door to a 90-day feasibility and a definitive term sheet. From Greg: agreement to anchor the capital partnership and shape the structure with us — joining FOC and Click Clack at the table for the next 90 days.
+                If this resonates — we&rsquo;d like to walk Finca San Pascual together, share a meal in Fredonia, and listen.
               </p>
-              <div className="colContactLinks" style={{justifyContent:"center"}}>
+              <div className="colContactLinks" style={{ justifyContent: "center" }}>
                 <a href="mailto:tcho@focities.com" className="colContactLink">tcho@focities.com</a>
               </div>
             </FadeIn>
@@ -743,13 +899,14 @@ export default function Home() {
               <span>COLOMBIA</span>
             </div>
             <div className="colFooterPartner">
-              <span className="colFooterPartnerLabel">Hospitality partner</span>
+              <span className="colFooterPartnerLabel">A partnership of</span>
+              <span style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", color: "rgba(245,239,226,0.85)", fontSize: "1.05rem", marginRight: "1rem" }}>Pergamino</span>
               <img src={CLICK_CLACK_LOGO} alt="Click Clack" className="colFooterPartnerLogo" />
             </div>
           </div>
           <div className="colFooterLine" />
-          <p className="colFooterMeta colFooterMetaCenter">Confidential · Partnership Discussion · April 2026 · Future of Cities · ChoZen · Click Clack · Pergamino</p>
-          <p className="colFooterSmall">© 2026 Cho Ventures. All rights reserved. ChoZen® is a registered mark. This material is for informational purposes only.</p>
+          <p className="colFooterMeta colFooterMetaCenter">Confidential · Partnership Discussion · April 2026 · Pergamino · ChoZen · Click Clack · Future of Cities</p>
+          <p className="colFooterSmall">© 2026 Cho Ventures. All rights reserved. ChoZen® is a registered mark.</p>
         </div>
       </footer>
     </div>
