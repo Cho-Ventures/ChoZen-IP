@@ -14,6 +14,7 @@ const encodeVideo = (name) => `${VIDEO_BLOB}/${encodeURIComponent(name)}`;
 
 const STAMP_LOGO = `${IMG_BLOB}/chozen-stamp.png`;
 const CLICK_CLACK_LOGO = "https://zicvctuf51wytcty.public.blob.vercel-storage.com/logo-click-clack-negro.png";
+const PERGAMINO_LOGO = "/pergamino-logo-white.png";
 
 const VIDEO = {
   heroPullback: encodeVideo("Firefly Epic slow cinematic drone pullback rising gradually from the luxury mountain village, reveal.mp4"),
@@ -126,7 +127,7 @@ const COMPONENTS = [
     num: "03",
     title: "Click Clack Boutique Hotel",
     tag: "Design-Forward Hospitality",
-    desc: "A Click Clack within ChoZen Colombia — culturally rooted, design-forward Colombian hospitality. Modern finca tradition with Japanese-Colombian design influences, in the architectural lineage of Simón Vélez (Colombia's master of bamboo) and Kengo Kuma (the Japanese architect behind Click Clack's design language).",
+    desc: "A Click Clack within ChoZen Colombia — culturally rooted, design-forward Colombian hospitality. Modern finca tradition rooted in Antioqueño design, in the architectural lineage of Simón Vélez — Colombia's master of bamboo.",
     note: "Click Clack operates the boutique hotel and the farm-to-table F&B as one platform.",
     img: IMG.boutiqueHotel,
     cobrand: CLICK_CLACK_LOGO,
@@ -195,6 +196,8 @@ const PARTNERS = [
     name: "Pergamino",
     role: "Coffee Heritage · Farm Stewardship",
     desc: "Preserves and elevates the specialty-coffee operation on Finca San Pascual. Maintains the export channel. Anchors the farm hotel, the flagship café in the village, and the project's relationship with the broader smallholder network across Antioquia, Cauca, and Nariño.",
+    logo: PERGAMINO_LOGO,
+    logoDark: true,
   },
   {
     name: "ChoZen",
@@ -479,10 +482,10 @@ export default function Home() {
           <p className="colHeroLocation">Finca San Pascual · Fredonia, Antioquia</p>
           <div className="colHeroCoBrand" style={{ flexDirection: "column", gap: "0.65rem" }}>
             <span className="colHeroCoBrandLabel">A Partnership Between</span>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1.5rem", flexWrap: "wrap", marginTop: "0.5rem" }}>
-              <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.4rem", fontStyle: "italic", color: "#F5EFE2", letterSpacing: "0.04em" }}>Pergamino</span>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "2.25rem", flexWrap: "wrap", marginTop: "0.75rem" }}>
+              <img src={PERGAMINO_LOGO} alt="Pergamino" style={{ height: "96px", width: "auto", filter: "brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.4))" }} />
               <span style={{ color: "rgba(245,239,226,0.5)" }}>·</span>
-              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "1rem", color: "#F5EFE2", letterSpacing: "0.18em", fontWeight: 500 }}>CHOZEN</span>
+              <img src={STAMP_LOGO} alt="ChoZen" style={{ height: "72px", width: "auto", filter: "brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.4))" }} />
               <span style={{ color: "rgba(245,239,226,0.5)" }}>·</span>
               <img src={CLICK_CLACK_LOGO} alt="Click Clack" className="colHeroCoBrandLogo" />
             </div>
@@ -518,6 +521,13 @@ export default function Home() {
         <div className="colWrap">
           <div className="colSecHead">
             <FadeIn><p className="colEyebrow">Honoring the Echavarría Family · Pergamino</p></FadeIn>
+            <FadeIn delay={0.05}>
+              <div style={{ display: "flex", justifyContent: "center", margin: "1.5rem 0 2rem" }}>
+                <div style={{ background: "var(--ink, #1A1610)", padding: "1.6rem 2.4rem", borderRadius: "4px", display: "inline-flex", alignItems: "center" }}>
+                  <img src={PERGAMINO_LOGO} alt="Pergamino" style={{ height: "96px", width: "auto", filter: "brightness(0) invert(1)" }} />
+                </div>
+              </div>
+            </FadeIn>
             <FadeIn delay={0.1}>
               <h2 className="colSecTitle">A family rooted in Fredonia.<br/><em>A coffee legacy in motion.</em></h2>
             </FadeIn>
@@ -712,8 +722,8 @@ export default function Home() {
         src={VIDEO.corridorDolly}
         height="80vh"
         subtitle="Architecture as Lineage"
-        title={<>Antioqueño modern.<br/><em>Japanese-Colombian sensibility.</em></>}
-        caption="Whitewashed walls. Bamboo (Simón Vélez lineage). Rammed earth. Living roofs. The Kengo Kuma DNA already present in Click Clack's existing properties."
+        title={<>Antioqueño modern.<br/><em>Rooted in the land.</em></>}
+        caption="Whitewashed walls. Bamboo in the Simón Vélez lineage. Rammed earth. Locally-sourced timber. Living roofs. Built by local craft."
         poster={IMG.finca}
       />
 
@@ -809,8 +819,8 @@ export default function Home() {
                   <span className="colPartnerNum">0{i + 1}</span>
                   <p className="colPartnerRole">{p.role}</p>
                   {p.logo ? (
-                    <div className="colPartnerLogoWrap">
-                      <img src={p.logo} alt={p.name} className="colPartnerLogo" />
+                    <div className="colPartnerLogoWrap" style={p.logoDark ? { background: "var(--ink, #1A1610)", borderRadius: "3px", padding: "1.6rem 1.25rem", display: "flex", alignItems: "center", justifyContent: "center", minHeight: "130px" } : {}}>
+                      <img src={p.logo} alt={p.name} className="colPartnerLogo" style={p.logoDark ? { maxHeight: "84px", width: "auto", filter: "brightness(0) invert(1)" } : {}} />
                     </div>
                   ) : (
                     <h3 className="colPartnerName">{p.name}</h3>
@@ -900,7 +910,7 @@ export default function Home() {
             </div>
             <div className="colFooterPartner">
               <span className="colFooterPartnerLabel">A partnership of</span>
-              <span style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", color: "rgba(245,239,226,0.85)", fontSize: "1.05rem", marginRight: "1rem" }}>Pergamino</span>
+              <img src={PERGAMINO_LOGO} alt="Pergamino" style={{ height: "52px", width: "auto", marginRight: "1.5rem", filter: "brightness(0) invert(1)" }} />
               <img src={CLICK_CLACK_LOGO} alt="Click Clack" className="colFooterPartnerLogo" />
             </div>
           </div>
