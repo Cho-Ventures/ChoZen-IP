@@ -147,7 +147,7 @@ const COMPONENTS = [
     tag: "The Foundation",
     desc: "Agriculture is not an amenity — it is the foundation. Finca San Pascual's specialty-coffee operation preserved and elevated under Pergamino stewardship; export channel maintained; regenerative-practice certification pursued. Diversification into vegetables, fruit, food forests, herbs, dairy, pasture-raised proteins. An equestrian center near the horse pastures honors the agricultural heritage of the region — trails through the coffee groves and out to the higher meadows.",
     note: "The farm feeds the hotels, the village kitchens, and the weekly market — and supports the broader Pergamino network.",
-    img: CHOZEN_PHOTOS.regenerativeFarm,
+    img: "/finca/ChoZen-Colombia.png",
   },
   {
     num: "05",
@@ -493,7 +493,6 @@ export default function Home() {
           </div>
         </div>
         <a href="#vision" className="colHeroScroll">
-          <span className="colHeroScrollText">Descubrir</span>
           <span className="colHeroScrollChev" />
         </a>
       </section>
@@ -589,23 +588,12 @@ export default function Home() {
               <h2 className="colSecTitleLight">What is ChoZen.<br/><em>Why Colombia.</em></h2>
             </FadeIn>
           </div>
-          {/* Founders + Shinto Gate photos */}
-          <FadeIn delay={0.08}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem", marginTop: "3rem" }}>
-              <figure style={{ margin: 0, borderRadius: "4px", overflow: "hidden" }}>
-                <img src={CHOZEN_PHOTOS.founders} alt="Tony & Ximena Cho" style={{ width: "100%", height: "380px", objectFit: "cover", display: "block" }} />
-                <figcaption style={{ marginTop: "0.7rem", fontSize: "0.7rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--gold, #C8A664)", textAlign: "center" }}>Tony & Ximena Cho</figcaption>
-              </figure>
-              <figure style={{ margin: 0, borderRadius: "4px", overflow: "hidden" }}>
-                <img src={CHOZEN_PHOTOS.shintoGate} alt="The ChoZen Shinto Gate" style={{ width: "100%", height: "380px", objectFit: "cover", display: "block" }} />
-                <figcaption style={{ marginTop: "0.7rem", fontSize: "0.7rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--gold, #C8A664)", textAlign: "center" }}>The Shinto Gate · ChoZen</figcaption>
-              </figure>
-            </div>
-          </FadeIn>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "2.5rem", marginTop: "3rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "2.5rem", marginTop: "3rem" }}>
             <FadeIn delay={0.1}>
               <div>
+                <div style={{ borderRadius: "4px", overflow: "hidden", marginBottom: "1.5rem" }}>
+                  <img src={CHOZEN_PHOTOS.shintoGate} alt="The ChoZen Shinto Gate" style={{ width: "100%", height: "400px", objectFit: "cover", display: "block" }} />
+                </div>
                 <p style={{ fontSize: "0.72rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--gold, #C8A664)", marginBottom: "0.7rem" }}>The Brand</p>
                 <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.7rem", color: "var(--cream, #F5EFE2)", marginBottom: "1rem", fontStyle: "italic" }}>A regenerative living framework.</h3>
                 <p style={{ color: "rgba(245,239,226,0.8)", lineHeight: 1.7 }}>ChoZen is a regenerative-living brand and framework — bringing together wellness, regenerative agriculture, intentional community, and biophilic design. Founded by Tony Cho and Ximena Cho, it has grown over more than a decade as a community of changemakers, indigenous leaders, world-class wellness practitioners, and visionaries.</p>
@@ -613,6 +601,9 @@ export default function Home() {
             </FadeIn>
             <FadeIn delay={0.18}>
               <div>
+                <div style={{ borderRadius: "4px", overflow: "hidden", marginBottom: "1.5rem" }}>
+                  <img src={CHOZEN_PHOTOS.founders} alt="Tony & Ximena Cho" style={{ width: "100%", height: "400px", objectFit: "cover", display: "block" }} />
+                </div>
                 <p style={{ fontSize: "0.72rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--gold, #C8A664)", marginBottom: "0.7rem" }}>The Founders</p>
                 <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.7rem", color: "var(--cream, #F5EFE2)", marginBottom: "1rem", fontStyle: "italic" }}>Tony &amp; Ximena Cho.</h3>
                 <p style={{ color: "rgba(245,239,226,0.8)", lineHeight: 1.7 }}>Tony Cho is a regenerative placemaker with a 20-year track record — founder of Future of Cities, original placemaker of Wynwood, and founder of the Phoenix Arts &amp; Innovation District. Ximena Cho is a Colombian-born co-founder, philanthropist, and environmental advocate. Their partnership and her Colombian heritage are why this project belongs here.</p>
@@ -620,6 +611,9 @@ export default function Home() {
             </FadeIn>
             <FadeIn delay={0.26}>
               <div>
+                <div style={{ borderRadius: "4px", overflow: "hidden", marginBottom: "1.5rem" }}>
+                  <img src="/finca/medellin-2.jpg" alt="Medellín" style={{ width: "100%", height: "400px", objectFit: "cover", display: "block" }} />
+                </div>
                 <p style={{ fontSize: "0.72rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--gold, #C8A664)", marginBottom: "0.7rem" }}>Why Colombia</p>
                 <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.7rem", color: "var(--cream, #F5EFE2)", marginBottom: "1rem", fontStyle: "italic" }}>Where the framework belongs.</h3>
                 <p style={{ color: "rgba(245,239,226,0.8)", lineHeight: 1.7 }}>Colombia has the land, the culture, the coffee, and the people. The mixed-village model — local farmers and international residents as neighbors, not amenities — is most natural here. ChoZen Colombia is the most purposeful realization of the framework to date.</p>

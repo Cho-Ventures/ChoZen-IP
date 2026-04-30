@@ -790,7 +790,7 @@ body{font-family:var(--font-body);color:var(--text);background:var(--warm-white)
 .colNav.scrolled .colNavToggle span{background:var(--col-coffee)}
 
 /* ─── HERO ─── */
-.colHero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--col-coffee)}
+.colHero{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--col-coffee)}
 .colHeroVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .colHeroOverlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(26,17,10,0.55) 0%,rgba(26,17,10,0.35) 40%,rgba(26,17,10,0.65) 100%)}
 .colHeroContent{position:relative;z-index:2;text-align:center;padding:40px 24px;width:100%;max-width:1100px}
