@@ -203,6 +203,7 @@ const PARTNERS = [
     name: "ChoZen",
     role: "The Brand · The Framework",
     desc: "The primary brand of the community — the residential village, the artisan neighborhood, the schools, the trails, the wellness sanctuary, the regenerative framework. A proven approach to intentional, regenerative placemaking.",
+    stamp: STAMP_LOGO,
   },
   {
     name: "Click Clack Hotel",
@@ -322,7 +323,7 @@ function Nav() {
   );
 }
 
-function FadeIn({ children, delay = 0, className = "", direction = "up" }) {
+function FadeIn({ children, delay = 0, className = "", direction = "up", style = {} }) {
   const [ref, vis] = useInView(0.08);
   const transforms = { up: "translateY(48px)", down: "translateY(-48px)", left: "translateX(48px)", right: "translateX(-48px)", none: "none" };
   return (
@@ -330,6 +331,7 @@ function FadeIn({ children, delay = 0, className = "", direction = "up" }) {
       opacity: vis ? 1 : 0,
       transform: vis ? "translate(0)" : transforms[direction],
       transition: `opacity 1s cubic-bezier(0.22,1,0.36,1) ${delay}s, transform 1s cubic-bezier(0.22,1,0.36,1) ${delay}s`,
+      ...style,
     }}>{children}</div>
   );
 }
@@ -521,9 +523,7 @@ export default function Home() {
             <FadeIn><p className="colEyebrow">Honoring the Echavarría Family · Pergamino</p></FadeIn>
             <FadeIn delay={0.05}>
               <div style={{ display: "flex", justifyContent: "center", margin: "1.5rem 0 2rem" }}>
-                <div style={{ background: "var(--ink, #1A1610)", padding: "1.6rem 2.4rem", borderRadius: "4px", display: "inline-flex", alignItems: "center" }}>
-                  <img src={PERGAMINO_LOGO} alt="Pergamino" style={{ height: "96px", width: "auto", filter: "brightness(0) invert(1)" }} />
-                </div>
+                <img src={PERGAMINO_LOGO} alt="Pergamino" style={{ height: "120px", width: "auto", filter: "brightness(0.25)" }} />
               </div>
             </FadeIn>
             <FadeIn delay={0.1}>
@@ -752,15 +752,15 @@ export default function Home() {
               <p className="colSecDesc">The Finca entrance, the residential bands above, and the off-site town of Los Palomos — woven together as one community.</p>
             </FadeIn>
           </div>
-          <div className="colSiteGrid" style={{ marginTop: "3rem" }}>
+          <div className="colSiteGrid" style={{ marginTop: "3rem", alignItems: "stretch" }}>
             {LEVELS.map((s, i) => (
-              <FadeIn key={i} delay={i * 0.1}>
-                <div className="colSiteCard">
+              <FadeIn key={i} delay={i * 0.1} style={{ height: "100%", display: "flex" }}>
+                <div className="colSiteCard" style={{ display: "flex", flexDirection: "column", height: "100%", flex: 1 }}>
                   <p className="colSiteTag">{s.where}</p>
                   <h3 className="colSiteName">{s.name}</h3>
                   <div className="colSiteDivider" />
                   <p className="colSiteDesc">{s.desc}</p>
-                  <div style={{ marginTop: "1.2rem", display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
+                  <div style={{ marginTop: "auto", paddingTop: "1.2rem", display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
                     {s.items.map(t => (
                       <span key={t} style={{ fontSize: "0.66rem", letterSpacing: "0.14em", textTransform: "uppercase", padding: "0.4rem 0.7rem", border: "1px solid rgba(0,0,0,0.12)", borderRadius: "999px", color: "rgba(26,22,16,0.7)" }}>{t}</span>
                     ))}
@@ -774,7 +774,7 @@ export default function Home() {
           <FadeIn delay={0.2}>
             <h3 className="subHead" style={{ marginTop: "5rem", textAlign: "center", fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem", fontStyle: "italic" }}>Six Resident Cohorts · One Village</h3>
             <p style={{ textAlign: "center", maxWidth: "680px", margin: "0.8rem auto 2.5rem", lineHeight: 1.7, color: "rgba(26,22,16,0.7)" }}>The age, occupational, and cultural rhythm of a healthy Antioquian town — not a demographic monoculture.</p>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.5rem" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem" }}>
               {COHORTS.map((c, i) => (
                 <div key={i} style={{ padding: "1.6rem", border: "1px solid rgba(0,0,0,0.08)", borderRadius: "3px", background: "rgba(255,255,255,0.5)" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "0.7rem" }}>
@@ -824,6 +824,7 @@ export default function Home() {
                     <h3 className="colPartnerName">{p.name}</h3>
                   )}
                   <p className="colPartnerDesc">{p.desc}</p>
+                  {p.stamp && <img src={p.stamp} alt="" style={{ width: "36px", height: "auto", marginTop: "1rem", opacity: 0.4 }} />}
                 </div>
               </FadeIn>
             ))}
@@ -908,7 +909,7 @@ export default function Home() {
             </div>
             <div className="colFooterPartner">
               <span className="colFooterPartnerLabel">A partnership of</span>
-              <img src={PERGAMINO_LOGO} alt="Pergamino" style={{ height: "52px", width: "auto", marginRight: "1.5rem", filter: "brightness(0) invert(1)" }} />
+              <img src={PERGAMINO_LOGO} alt="Pergamino" style={{ height: "80px", width: "auto", marginRight: "1.5rem", filter: "brightness(0) invert(1)" }} />
               <img src={CLICK_CLACK_LOGO} alt="Click Clack" className="colFooterPartnerLogo" />
             </div>
           </div>

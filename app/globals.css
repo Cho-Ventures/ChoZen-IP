@@ -999,9 +999,9 @@ body{font-family:var(--font-body);color:var(--text);background:var(--warm-white)
 .colFooterMeta a:hover{border-color:var(--col-gold-soft)}
 .colFooterLine{width:100%;height:1px;background:rgba(246,241,231,0.1);margin:32px 0 20px}
 .colFooterSmall{font-size:0.68rem;color:rgba(246,241,231,0.4);letter-spacing:0.05em}
-.colFooterPartner{display:flex;flex-direction:column;align-items:center;gap:12px}
+.colFooterPartner{display:flex;flex-direction:row;align-items:center;gap:2rem}
 .colFooterPartnerLabel{font-size:0.58rem;letter-spacing:0.4em;text-transform:uppercase;color:rgba(246,241,231,0.5);font-weight:500}
-.colFooterPartnerLogo{display:block;height:36px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.9}
+.colFooterPartnerLogo{display:block;height:56px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.9}
 .colFooterMetaCenter{text-align:center;margin-top:8px}
 
 /* ─── RESPONSIVE ─── */
