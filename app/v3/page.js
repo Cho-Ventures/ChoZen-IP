@@ -594,11 +594,11 @@ export default function Home() {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem", marginTop: "3rem" }}>
               <figure style={{ margin: 0, borderRadius: "4px", overflow: "hidden" }}>
                 <img src={CHOZEN_PHOTOS.founders} alt="Tony & Ximena Cho" style={{ width: "100%", height: "380px", objectFit: "cover", display: "block" }} />
-                <figcaption style={{ marginTop: "0.7rem", fontSize: "0.7rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--gold, #C8A664)", textAlign: "center" }}>Tony & Ximena Cho · Photo by Bruno Vitale</figcaption>
+                <figcaption style={{ marginTop: "0.7rem", fontSize: "0.7rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--gold, #C8A664)", textAlign: "center" }}>Tony & Ximena Cho</figcaption>
               </figure>
               <figure style={{ margin: 0, borderRadius: "4px", overflow: "hidden" }}>
                 <img src={CHOZEN_PHOTOS.shintoGate} alt="The ChoZen Shinto Gate" style={{ width: "100%", height: "380px", objectFit: "cover", display: "block" }} />
-                <figcaption style={{ marginTop: "0.7rem", fontSize: "0.7rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--gold, #C8A664)", textAlign: "center" }}>The Shinto Gate · ChoZen 2021 · Photo by Bruno Vitale</figcaption>
+                <figcaption style={{ marginTop: "0.7rem", fontSize: "0.7rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--gold, #C8A664)", textAlign: "center" }}>The Shinto Gate · ChoZen</figcaption>
               </figure>
             </div>
           </FadeIn>
@@ -843,26 +843,6 @@ export default function Home() {
                 </div>
               </FadeIn>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ DEAL STRUCTURE — LIGHT TOUCH ═══ */}
-      <section className="colHowItWorks">
-        <div className="colWrap">
-          <div className="colHowGrid">
-            <div>
-              <FadeIn><p className="colEyebrow">Structure · Light Touch</p></FadeIn>
-              <FadeIn delay={0.1}>
-                <h2 className="colHowTitle">A multigenerational<br/><em>partnership.</em></h2>
-              </FadeIn>
-            </div>
-            <div className="colHowBody">
-              <FadeIn delay={0.15}>
-                <p>This is an <em>introduction</em>, not a negotiation. The structure, when we get there, is simple: the family contributes Finca San Pascual at an agreed value as equity — preserving multigenerational ownership and upside. ChoZen and Future of Cities contribute the brand, the framework, and the master-plan IP. Click Clack contributes the boutique-hotel brand and operations. Pergamino retains its IP and its brand on the farm.</p>
-                <p>This is not just a business deal. It is a multigenerational partnership — celebrating the culture and vibrancy of Colombia, and built around honoring the family, the small farmers, and the town.</p>
-              </FadeIn>
-            </div>
           </div>
         </div>
       </section>
