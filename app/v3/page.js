@@ -27,6 +27,15 @@ const VIDEO = {
 // Real Finca San Pascual photos in /public/finca/
 const FINCA = (n) => `/finca/finca-${String(n).padStart(2, "0")}.jpeg`;
 
+// ChoZen property + founder photos
+const CHOZEN_PHOTOS = {
+  shintoGate: "/finca/ChoZen_Shinto_Gate_2021_Bruno_Vitale.jpg",
+  founders: "/finca/Tony Cho_Ximena_Cho_Photographer_Bruno Vitale.jpg",
+  farmHotel: "/finca/farm hotel.png",
+  regenerativeFarm: "/finca/regenerative farm.png",
+  artisanVillage: "/finca/Residential & Artisan Village.png",
+};
+
 const PHOTO = {
   // honoring family
   oldFarmhouse: FINCA(10),                  // brick farmhouse w/ Pedro + dog
@@ -95,8 +104,8 @@ const FAMILY_LEGACY = [
   },
   {
     year: "2010 →",
-    title: "Pedro Jr. & Pergamino",
-    body: "Pedro Echavarría Jr. builds Pergamino Coffee from 2010 onward — a high-end specialty coffee brand and the retail-and-export extension of the family's farming operation. Today: a national café footprint, exports to specialty roasters on four continents, and ongoing offtake support for a network of smallholder producers.",
+    title: "Pedro Jr. & Nicholas · Pergamino",
+    body: "Pedro Echavarría Jr. and his brother Nicholas build Pergamino Coffee from 2010 onward — a high-end specialty coffee brand and the retail-and-export extension of the family's farming operation. Today: a national café footprint, exports to specialty roasters on four continents, and ongoing offtake support for a network of smallholder producers.",
   },
   {
     year: "Today",
@@ -105,7 +114,7 @@ const FAMILY_LEGACY = [
   },
 ];
 
-// Six components — restructured per Tony's feedback
+// Five components — restructured per Tony's April 30 feedback
 const COMPONENTS = [
   {
     num: "01",
@@ -113,43 +122,35 @@ const COMPONENTS = [
     tag: "The Neighborhood",
     desc: "A village across two on-site bands plus a town anchor. Workforce housing at the Finca entrance for farm and village teams. The residential village on the higher levels — artist and maker live-work, family homes, entrepreneur and remote-worker residences, and a luxury senior tier with longevity programming. Off-site, in the town of Los Palomos, additional workforce and affordable housing alongside an affordable senior tier — co-located with the public clinic and school.",
     note: "Locals and internationals as neighbors. Workforce housing is structural, not incidental.",
-    img: PHOTO.oldFarmhouse,
+    img: CHOZEN_PHOTOS.artisanVillage,
   },
   {
     num: "02",
-    title: "Sanctuary · Retreat & Wellness Center",
-    tag: "The Spiritual Heart",
-    desc: "An intimate sanctuary for transformational programming, healing, and immersive nature-based experiences — bamboo pavilions, natural stone pools, open-air movement studios, hydrotherapy, medicinal-plant greenhouse. Anchor programs include Blue Zones longevity, ChoZen retreats, and physician-led clinical wellness integrated with the public clinic. Sliding-scale access for Los Palomos and Fredonia residents.",
-    note: "If the geological survey confirms feasibility, natural thermal springs woven into the experience.",
-    img: IMG.wellnessRetreat,
+    title: "Pergamino Farm Hotel",
+    tag: "The Family's Dream",
+    desc: "A farm-to-table boutique hotel — born of the farm itself. The Echavarría family always dreamed of their own hotel; this makes it real. A coffee-heritage guesthouse rooted in the working agricultural life of Finca San Pascual: open-air corridors, terracotta tile roofs, hanging gardens, and the morning harvest. The Pergamino brand on the door — Click Clack managing operations behind the scenes.",
+    note: "We can make their dreams come true, which makes our dreams come true.",
+    img: CHOZEN_PHOTOS.farmHotel,
   },
   {
     num: "03",
-    title: "Click Clack Boutique Hotel",
-    tag: "Design-Forward Hospitality",
-    desc: "A Click Clack within ChoZen Colombia — culturally rooted, design-forward Colombian hospitality. Modern finca tradition rooted in Antioqueño design, in the architectural lineage of Simón Vélez — Colombia's master of bamboo.",
-    note: "Click Clack operates the boutique hotel and the farm-to-table F&B as one platform.",
-    img: IMG.boutiqueHotel,
+    title: "Click Clack Wellness Boutique Hotel & Retreat Center",
+    tag: "Design-Forward Hospitality · Wellness",
+    desc: "A Click Clack within ChoZen Colombia — culturally rooted, design-forward Colombian hospitality fused with an intimate wellness sanctuary. Bamboo pavilions, natural stone pools, open-air movement studios, hydrotherapy, medicinal-plant greenhouse. Anchor programs include Blue Zones longevity, ChoZen retreats, and physician-led clinical wellness. Two complementary hotels on the property — one coffee-rooted, one design-forward — each offering a different way to experience the land.",
+    note: "Click Clack manages both hotels. Different brands, same world-class management company.",
+    img: IMG.wellnessRetreat,
     cobrand: CLICK_CLACK_LOGO,
   },
   {
     num: "04",
-    title: "Pergamino Farm Hotel",
-    tag: "Coffee Heritage Stay",
-    desc: "A second, smaller hotel — born of the farm itself. A coffee-heritage guesthouse rooted in the working agricultural life of Finca San Pascual: the open-air corridors, terracotta tile roofs, hanging gardens, and the morning harvest. Two complementary hotels on the property — one design-forward, one coffee-rooted — each offering a different way to experience the land.",
-    note: "Operated under Pergamino's stewardship in coordination with the broader hospitality platform.",
-    img: FINCA(2),
-  },
-  {
-    num: "05",
     title: "Pergamino × ChoZen Regenerative Farm + Equestrian Center",
     tag: "The Foundation",
     desc: "Agriculture is not an amenity — it is the foundation. Finca San Pascual's specialty-coffee operation preserved and elevated under Pergamino stewardship; export channel maintained; regenerative-practice certification pursued. Diversification into vegetables, fruit, food forests, herbs, dairy, pasture-raised proteins. An equestrian center near the horse pastures honors the agricultural heritage of the region — trails through the coffee groves and out to the higher meadows.",
     note: "The farm feeds the hotels, the village kitchens, and the weekly market — and supports the broader Pergamino network.",
-    img: PHOTO.equestrian,
+    img: CHOZEN_PHOTOS.regenerativeFarm,
   },
   {
-    num: "06",
+    num: "05",
     title: "Schools — In the Town & On the Higher Levels",
     tag: "Public Anchors · Lifting the Region",
     desc: "Two complementary schools, neither exclusive. A public, traditional + vocational school in the town of Los Palomos — modernized with project capital under the Alianza ERA framework with the Gobernación and Secretaría de Educación, with SENA-aligned vocational tracks. And a ChoZen School (Green School × Ad Astra) — bilingual, regenerative-STEM, with reserved scholarship seats for local families and structural cross-enrollment with the public school.",
@@ -207,8 +208,8 @@ const PARTNERS = [
   },
   {
     name: "Click Clack Hotel",
-    role: "Design Hospitality",
-    desc: "Operates the boutique hotel and the farm-to-table F&B platform — bringing brand, design sensibility, and operational infrastructure. One of two complementary hotel concepts on the property.",
+    role: "Hospitality Management · Both Hotels",
+    desc: "Manages both hotels on the property — the Click Clack Wellness Boutique Hotel under its own brand, and the Pergamino Farm Hotel behind the scenes. Brings world-class hospitality operations, design sensibility, and F&B infrastructure. Different brands, same management company.",
     logo: CLICK_CLACK_LOGO,
   },
   {
@@ -588,6 +589,20 @@ export default function Home() {
               <h2 className="colSecTitleLight">What is ChoZen.<br/><em>Why Colombia.</em></h2>
             </FadeIn>
           </div>
+          {/* Founders + Shinto Gate photos */}
+          <FadeIn delay={0.08}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem", marginTop: "3rem" }}>
+              <figure style={{ margin: 0, borderRadius: "4px", overflow: "hidden" }}>
+                <img src={CHOZEN_PHOTOS.founders} alt="Tony & Ximena Cho" style={{ width: "100%", height: "380px", objectFit: "cover", display: "block" }} />
+                <figcaption style={{ marginTop: "0.7rem", fontSize: "0.7rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--gold, #C8A664)", textAlign: "center" }}>Tony & Ximena Cho · Photo by Bruno Vitale</figcaption>
+              </figure>
+              <figure style={{ margin: 0, borderRadius: "4px", overflow: "hidden" }}>
+                <img src={CHOZEN_PHOTOS.shintoGate} alt="The ChoZen Shinto Gate" style={{ width: "100%", height: "380px", objectFit: "cover", display: "block" }} />
+                <figcaption style={{ marginTop: "0.7rem", fontSize: "0.7rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--gold, #C8A664)", textAlign: "center" }}>The Shinto Gate · ChoZen 2021 · Photo by Bruno Vitale</figcaption>
+              </figure>
+            </div>
+          </FadeIn>
+
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "2.5rem", marginTop: "3rem" }}>
             <FadeIn delay={0.1}>
               <div>
@@ -731,7 +746,7 @@ export default function Home() {
           <div className="colSecHead">
             <FadeIn><p className="colEyebrow">The Programming</p></FadeIn>
             <FadeIn delay={0.1}>
-              <h2 className="colSecTitle">Six interconnected components.<br/><em>Each reinforces the others.</em></h2>
+              <h2 className="colSecTitle">Five interconnected components.<br/><em>Each reinforces the others.</em></h2>
             </FadeIn>
           </div>
           <div className="colCommList">
@@ -852,16 +867,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══ NEXT 90 DAYS — SIMPLE ═══ */}
+      {/* ═══ NEXT STEPS — SOFT ═══ */}
       <section className="colSec colSecCream">
         <div className="colWrap">
           <div className="colSecHead">
-            <FadeIn><p className="colEyebrow">The Next 90 Days</p></FadeIn>
+            <FadeIn><p className="colEyebrow">Next Steps</p></FadeIn>
             <FadeIn delay={0.1}>
-              <h2 className="colSecTitle">A 90-day feasibility<br/><em>and term sheet.</em></h2>
+              <h2 className="colSecTitle">Getting to know<br/><em>each other.</em></h2>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <p className="colSecDesc" style={{ maxWidth: "640px", margin: "1.5rem auto 0" }}>If the conversation continues — site walks, hydrology and geotechnical surveys, master-plan concept, and a definitive term sheet. No public signal until we&rsquo;re ready, together.</p>
+              <p className="colSecDesc" style={{ maxWidth: "640px", margin: "1.5rem auto 0" }}>We explore what a partnership could look like — walking the land together, sharing meals, listening. No rush. No pressure. Just the beginning of a conversation about what we might build, together.</p>
             </FadeIn>
           </div>
         </div>
@@ -871,9 +886,9 @@ export default function Home() {
       <ImageBreak
         img={PHOTO.sunsetMountain}
         height="78vh"
-        subtitle="The Real Question"
-        title={<><em>It is whether the partnership<br/>can be built.</em></>}
-        caption="The land is here. The family is here. The brand is here. The framework is here."
+        subtitle="What's Next"
+        title={<><em>The land is here. The family is here.<br/>The framework is here.</em></>}
+        caption="Now we listen."
         overlay={0.55}
       />
 
