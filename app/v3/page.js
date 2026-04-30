@@ -136,9 +136,9 @@ const COMPONENTS = [
     num: "04",
     title: "Pergamino Farm Hotel",
     tag: "Coffee Heritage Stay",
-    desc: "A second, smaller hotel — born of the farm itself. A coffee-heritage guesthouse rooted in the working agricultural life of Finca San Pascual: coffee processing yards, the brick farmhouse, the morning harvest, the evening sobremesa. Two complementary hotels on the property — one design-forward, one coffee-rooted — each offering a different way to experience the land.",
+    desc: "A second, smaller hotel — born of the farm itself. A coffee-heritage guesthouse rooted in the working agricultural life of Finca San Pascual: the open-air corridors, terracotta tile roofs, hanging gardens, and the morning harvest. Two complementary hotels on the property — one design-forward, one coffee-rooted — each offering a different way to experience the land.",
     note: "Operated under Pergamino's stewardship in coordination with the broader hospitality platform.",
-    img: PHOTO.coffeeProcessing,
+    img: FINCA(2),
   },
   {
     num: "05",
@@ -482,10 +482,8 @@ export default function Home() {
           <p className="colHeroLocation">Finca San Pascual · Fredonia, Antioquia</p>
           <div className="colHeroCoBrand" style={{ flexDirection: "column", gap: "0.65rem" }}>
             <span className="colHeroCoBrandLabel">A Partnership Between</span>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "2.25rem", flexWrap: "wrap", marginTop: "0.75rem" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "2.5rem", flexWrap: "wrap", marginTop: "0.75rem" }}>
               <img src={PERGAMINO_LOGO} alt="Pergamino" style={{ height: "96px", width: "auto", filter: "brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.4))" }} />
-              <span style={{ color: "rgba(245,239,226,0.5)" }}>·</span>
-              <img src={STAMP_LOGO} alt="ChoZen" style={{ height: "72px", width: "auto", filter: "brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.4))" }} />
               <span style={{ color: "rgba(245,239,226,0.5)" }}>·</span>
               <img src={CLICK_CLACK_LOGO} alt="Click Clack" className="colHeroCoBrandLogo" />
             </div>
